@@ -1,0 +1,9 @@
+{
+  "runtime_s": 30.030404419987462,
+  "energy_J": 1643.714,
+  "idle_power_W": 54.734993808674325,
+  "sampled_mean_W": 54.88440666666654,
+  "power_samples": 300,
+  "clock_MHz": 1065,
+  "cuda_context": false
+}

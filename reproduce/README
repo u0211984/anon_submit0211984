@@ -1,0 +1,12 @@
+Prerequisites (Linux x86-64, CPU only, about 32 GB RAM and 4 GB free disk):
+- Python 3.12 with the packages in requirements.txt (PYTHON=/path/to/python; default .venv/bin/python, else python3)
+- git, tar and xz
+- cmake >= 3.22, a C++17 compiler (GCC >= 9) and zlib headers
+- protobuf: protoc with the matching C++ headers and library (PROTOBUF_ROOT=<prefix> if not installed system-wide)
+
+bash reproduce/setup.sh     extracts the measured counter captures and builds AstraSim
+bash reproduce/run_all.sh   runs the three validation sets; figures and numbers go to reproduce/out/
+
+Measured runtime on a 72-core host (WORKERS=32, 16 and 20; WORKERS=n to change): setup 1 min, counts 38 min, energy 12 min,
+EnergyLens 10 min. run_all.sh runs the three sets one after another (about 1 h); counts.sh, energy.sh and energylens.sh can also
+run in parallel.

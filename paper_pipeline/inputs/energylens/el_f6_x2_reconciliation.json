@@ -1,0 +1,36 @@
+{
+ "status": "Fig. 6a references rescaled by 2, same mechanism as the Fig. 13a reconciliation",
+ "figure": "6",
+ "source_pdf": "EnergyLens.pdf (arXiv:2605.14249v1)",
+ "source_pdf_sha256": "3604f9667b47f4a45bb434ab1f5d04ae0d7255e73555d5fc586359d249a7a89d",
+ "definition": "k_B = 2 for every batch; applied to both Fig. 6a series (measured and EnergyLens, totals and components) for energy_per_request only. Same mechanism and scope as the F13 reconciliation (el_f13_fig7b_reconciliation.json). The measured CSV is not changed.",
+ "justification": [
+  "Raw Fig. 6a implies 94 W/GPU (B1) to 134 W/GPU (B16) on A100-SXM4-80GB during decode: measured energy / (measured latency per layer x 48 layers x 1023 decode steps x 2 GPUs).",
+  "That is below the floor of static power plus weight reads at our literature constants. B1, per decode step on 2 GPUs: 54 W x 2 x 6.71 ms (measured step) = 0.725 J, plus 6.05 GB of weights (attention 1.81 + 8 experts x 48 layers 3.62 + LM head 0.62) x (104.88 + 37.68) pJ/B = 0.862 J, total 1.59 J. Raw Fig. 6a gives 1.263 J per step.",
+  "Fig. 13a (Llama3-70B decode, same paper, same plot style) shows the same signature and was shown to be half-scale against Fig. 7b and Fig. 9.",
+  "The paper has no cross-check for Qwen3 decode (no EPOT or power figure), so the factor of 2 is unproven."
+ ],
+ "per_batch": [
+  {
+   "batch": 1,
+   "k_B": 2.0
+  },
+  {
+   "batch": 2,
+   "k_B": 2.0
+  },
+  {
+   "batch": 4,
+   "k_B": 2.0
+  },
+  {
+   "batch": 8,
+   "k_B": 2.0
+  },
+  {
+   "batch": 16,
+   "k_B": 2.0
+  }
+ ],
+ "changed_rows": 55
+}

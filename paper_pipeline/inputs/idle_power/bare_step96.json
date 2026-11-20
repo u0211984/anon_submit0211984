@@ -1,0 +1,43 @@
+{
+  "status": "complete",
+  "job": {
+    "id": "locked_idle_power",
+    "kind": "idle",
+    "clock": "locked",
+    "mode": null,
+    "precision": null,
+    "stage": "power",
+    "argv": null,
+    "probe": [
+      "<work>/src_refs/antepara_mixbench/build_antepara/mixbench-cuda",
+      "0",
+      "0",
+      "1"
+    ],
+    "duration_s": 30,
+    "context": false,
+    "ncu": "/opt/nvidia/nsight-compute/2025.1.0/ncu"
+  },
+  "clock_verification": {
+    "under_load_sm_mhz": 1065.0,
+    "util_pct": 3.0
+  },
+  "before": {
+    "total_mJ": 64030919187,
+    "monotonic_s": 828098.258147224,
+    "unix_s": 1794648940.98119
+  },
+  "events": [],
+  "after": {
+    "total_mJ": 64032460166,
+    "monotonic_s": 828128.261251134,
+    "unix_s": 1794648970.9842925
+  },
+  "nvml_energy_J": 1540.979,
+  "wall_s": 30.003103910014033,
+  "observed_loaded_sm_mhz": [],
+  "idle_power_w": 51.342,
+  "used_in_equations": true,
+  "clock_reset_rc": 0,
+  "clock_reset_output": "All done.\n"
+}

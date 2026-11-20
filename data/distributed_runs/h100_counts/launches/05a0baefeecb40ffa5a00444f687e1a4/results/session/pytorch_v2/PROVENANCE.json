@@ -1,0 +1,179 @@
+{
+  "launch": "05a0baefeecb40ffa5a00444f687e1a4",
+  "pins": {
+    "path": "distributed_runs/h100_counts/pins/a100-cells.json",
+    "sha256": "4e2a0b159a6bd1eec1777bb45dbae89676cd485b457c4a2241c56c8dd6fdbd43"
+  },
+  "setup": {
+    "result.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/result.json",
+      "sha256": "937d9a9d969e869c22c88688b249fde5441ba634dc0e8805eba8cfabdcd5ab3d"
+    },
+    "device.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/device.json",
+      "sha256": "28b321e8b19f2436d2851997eda92709d0fe03ce317b5b770415d971e71692d9"
+    },
+    "env-check-vllm.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/env-check-vllm.json",
+      "sha256": "144e3a242e4dceb68c72eef1461deb5dab59aa82842b6aee37116e0532e09812"
+    },
+    "env-check-train.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/env-check-train.json",
+      "sha256": "f73924642d559dced6d92625e2a85508c14158555d4d996776e6ca4b0f123f90"
+    },
+    "ncu-version.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/ncu-version.txt",
+      "sha256": "02b24976379c594eb2d7d1135918a0af9ee9770dae4ab42e18824e19210b1eb6"
+    },
+    "nvidia-smi.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/nvidia-smi.txt",
+      "sha256": "7690121ebee67915f2ff18c5f8d723f9675f31a0452b49e33d5626bb9fc85bcd"
+    },
+    "profiling-permission.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/profiling-permission.txt",
+      "sha256": "870e4a4eec63747161cee327470ed21a6c19119a164a1596730ec48e98e5470d"
+    },
+    "source-seal.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/source-seal.json",
+      "sha256": "190f3a85fe7d6c148d51398b1ad51e61a3da1a8014379636bb9af3be66fd8dbe"
+    },
+    "replay.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/replay.json",
+      "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+    }
+  },
+  "cells": [
+    {
+      "tag": "Qwen2.5-0.5B_train_1x1024_nockpt",
+      "cell_id": "14-Qwen2.5-0.5B-train",
+      "source_capture_sha256": "0c447a96ab11cb792002817a7f03bf7a05b01c9e030d08947c95060afcd26fcf",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/capture.csv",
+          "sha256": "0c447a96ab11cb792002817a7f03bf7a05b01c9e030d08947c95060afcd26fcf"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/cell.json",
+          "sha256": "a648f65c88d549a36c247e2569e6c31271ca9b1f256062841cf22df58e6fcba4"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/command.json",
+          "sha256": "6b86d7cabe76423037d839a8fa15b23524d322126f089a1fca3f46652acab5a1"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/result.json",
+          "sha256": "53c2c9f9f557ae38c791cd53937847ff610e1cb6fee4458426463239a3fd4905"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/14-Qwen2.5-0.5B-train/kernels.jsonl",
+          "sha256": "e04f97ec70551421db23322eda827836e44d86a41c066f5a8ef8849d9d2e7d54"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.2-1B_train_1x1024_nockpt",
+      "cell_id": "15-Llama-3.2-1B-train",
+      "source_capture_sha256": "336c1eb8d83479f4c3077b5be8b1623649b31ce22ebb064e7540400a18901e1d",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/capture.csv",
+          "sha256": "336c1eb8d83479f4c3077b5be8b1623649b31ce22ebb064e7540400a18901e1d"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/cell.json",
+          "sha256": "c8d19c7351fa42fbfc62356c872962590775e524034e7ad35f0f6ae32216f520"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/command.json",
+          "sha256": "e9f3ade354a26b523d51306a5212680806ba47bee636bc4c75444b6fb9345623"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/result.json",
+          "sha256": "4aab3ce904adee2df865430d0b4ffb37ce47bd9ff35d6671ef718ddef8c92725"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/15-Llama-3.2-1B-train/kernels.jsonl",
+          "sha256": "f010423253d844b50d5f0ae6e41ecd74a9f8ad3b5bdc2ef2f8b594840ab0d304"
+        }
+      }
+    },
+    {
+      "tag": "SmolLM2-1.7B_train_1x1024_nockpt",
+      "cell_id": "16-SmolLM2-1.7B-train",
+      "source_capture_sha256": "094b228be4b38eee832e115efb9868ff79890b137a5d43c99f504851cf5910e5",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/capture.csv",
+          "sha256": "094b228be4b38eee832e115efb9868ff79890b137a5d43c99f504851cf5910e5"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/cell.json",
+          "sha256": "efca27489274359875115e20999c199c580e6f2b5d691afa56d2a70b39f674c6"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/command.json",
+          "sha256": "6bd47c61a63655bb7f86812195a3d7ec16425cbdddd00876a7796133da803626"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/result.json",
+          "sha256": "42b8681ad55aa56ea26747a6446ff080bfadaf4a143cb6dedf04e97db7ef2543"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/16-SmolLM2-1.7B-train/kernels.jsonl",
+          "sha256": "b6db4bc07c790bf28cc1293eab5cf1ded1c66002d73a2600fb037896cec08507"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.2-3B_train_1x1024_nockpt",
+      "cell_id": "17-Llama-3.2-3B-train",
+      "source_capture_sha256": "0ad2bdd08103fcdca1893a1dfbc4a0d7d8b818d0360db46afe28377e92ad21db",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/capture.csv",
+          "sha256": "0ad2bdd08103fcdca1893a1dfbc4a0d7d8b818d0360db46afe28377e92ad21db"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/cell.json",
+          "sha256": "7bbd13a833e3ce6d4af1be78e449586102bbaff7f0ebd842963c91f201684a42"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/command.json",
+          "sha256": "150a2d94603edc82b3cd7336e0401cba045ed2e8437f8b787ea87a140f0ef2e7"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/result.json",
+          "sha256": "bac5ea2e1ad09898388a4e8ff855ffca5a55b6316518a9d20cb398b948f8ae03"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/17-Llama-3.2-3B-train/kernels.jsonl",
+          "sha256": "f478b4e2b58a3b97951e21301cd07500c2f336a3ef6680ef6551c30e592f7f64"
+        }
+      }
+    }
+  ]
+}

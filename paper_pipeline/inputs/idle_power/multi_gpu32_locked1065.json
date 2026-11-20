@@ -1,0 +1,415 @@
+{
+  "fake": false,
+  "gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "clock_mhz": 1065,
+  "energy_source": "NVML total energy counter",
+  "ok": true,
+  "gpu_uuids": [
+    "GPU-redacted-0",
+    "GPU-redacted-1",
+    "GPU-redacted-2",
+    "GPU-redacted-3",
+    "GPU-redacted-4",
+    "GPU-redacted-5",
+    "GPU-redacted-6",
+    "GPU-redacted-7"
+  ],
+  "field167_before_work": [
+    {
+      "gpu": 0,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580824953,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 1,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580824994,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 2,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825013,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 3,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825028,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 4,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825043,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 5,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825092,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 6,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825148,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    },
+    {
+      "gpu": 7,
+      "field_id": 167,
+      "name": "NVML_FI_DEV_NVLINK_GET_POWER_STATE",
+      "source": "/usr/local/cuda/include/nvml.h:2228 (0=HIGH_SPEED, 1=LOW_SPEED)",
+      "nvml_return": 3,
+      "timestamp_us": 1794669580825164,
+      "value_type": 0,
+      "scope_id": 0,
+      "status": "missing",
+      "reason": "NVML return 3"
+    }
+  ],
+  "locked": {
+    "requested_s": 30,
+    "elapsed_s": 30.054721002000008,
+    "t0_epoch": 1794669581.128923,
+    "t1_epoch": 1794669611.1836455,
+    "clock_mhz": 1065,
+    "energy_start_mJ": [
+      11268365,
+      11345706,
+      10981579,
+      11051579,
+      11869637,
+      10966989,
+      11099228,
+      11196703
+    ],
+    "energy_end_mJ": [
+      13266150,
+      13370122,
+      12964386,
+      13065433,
+      13931843,
+      12886898,
+      13044383,
+      13178435
+    ],
+    "energy_J": [
+      1997.785,
+      2024.416,
+      1982.807,
+      2013.854,
+      2062.206,
+      1919.909,
+      1945.155,
+      1981.732
+    ],
+    "power_W": [
+      66.4715869386063,
+      67.35767069224445,
+      65.97322929293048,
+      67.00624503770928,
+      68.61504386824184,
+      63.88044659846414,
+      64.72044774165624,
+      65.93746120179004
+    ],
+    "clock_stats": {
+      "0": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 66.65702666666667,
+        "power_W_max": 67.381,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "1": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 67.51181,
+        "power_W_max": 68.397,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "2": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 66.19763666666667,
+        "power_W_max": 66.646,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "3": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 67.06794333333333,
+        "power_W_max": 67.589,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "4": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 68.62722666666667,
+        "power_W_max": 69.256,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "5": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 63.91860666666667,
+        "power_W_max": 64.269,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "6": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 64.79668333333333,
+        "power_W_max": 65.259,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      },
+      "7": {
+        "sm_mhz_min": 1065,
+        "sm_mhz_med": 1065.0,
+        "sm_mhz_max": 1065,
+        "power_W_mean": 65.99169,
+        "power_W_max": 66.339,
+        "samples": 300,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.1199951171875
+      }
+    }
+  },
+  "default": {
+    "requested_s": 30,
+    "elapsed_s": 30.061104063000016,
+    "t0_epoch": 1794669611.8804457,
+    "t1_epoch": 1794669641.9415512,
+    "clock_mhz": null,
+    "energy_start_mJ": [
+      13311875,
+      13416486,
+      13009848,
+      13105080,
+      13979227,
+      12924692,
+      13088941,
+      13223792
+    ],
+    "energy_end_mJ": [
+      15173036,
+      15313454,
+      14857403,
+      14980586,
+      15899406,
+      14710696,
+      14907465,
+      15065358
+    ],
+    "energy_J": [
+      1861.161,
+      1896.968,
+      1847.555,
+      1875.506,
+      1920.179,
+      1786.004,
+      1818.524,
+      1841.566
+    ],
+    "power_W": [
+      61.9125962938522,
+      63.10373684294707,
+      61.45998484047758,
+      62.38979100932029,
+      63.875864172381014,
+      59.41245525304108,
+      60.49425184746578,
+      61.260757294228824
+    ],
+    "clock_stats": {
+      "0": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 61.96013953488372,
+        "power_W_max": 62.272,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "1": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 63.152993355481726,
+        "power_W_max": 63.325,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "2": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 61.4808903654485,
+        "power_W_max": 61.54,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "3": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 62.376651162790694,
+        "power_W_max": 62.662,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "4": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 63.84085382059801,
+        "power_W_max": 64.07,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "5": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 59.38466445182724,
+        "power_W_max": 59.393,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "6": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 60.65916279069768,
+        "power_W_max": 60.682,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      },
+      "7": {
+        "sm_mhz_min": 210,
+        "sm_mhz_med": 210,
+        "sm_mhz_max": 210,
+        "power_W_mean": 61.43752823920266,
+        "power_W_max": 61.468,
+        "samples": 301,
+        "throttle_masks": [
+          1
+        ],
+        "clock_max_gap_s": 0.10424447059631348
+      }
+    }
+  },
+  "clock_reset": true
+}

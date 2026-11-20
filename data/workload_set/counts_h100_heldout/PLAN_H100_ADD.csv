@@ -1,0 +1,3 @@
+order,tag,model,family,phase,batch,seq,a100_capture_s
+44,Llama-2-13B_decode_4x1024,Llama-2-13B,llama,decode,4,1024,
+45,Llama-2-13B_prefill_2x1024,Llama-2-13B,llama,prefill,2,1024,

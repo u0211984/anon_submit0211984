@@ -1,0 +1,100 @@
+{
+ "gpus": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "gpu_uuids": [
+  "GPU-redacted-0",
+  "GPU-redacted-1",
+  "GPU-redacted-2",
+  "GPU-redacted-3",
+  "GPU-redacted-4",
+  "GPU-redacted-5",
+  "GPU-redacted-6",
+  "GPU-redacted-7"
+ ],
+ "duration_s": 30.053982796000014,
+ "cuda_context": false,
+ "clock_lock_MHz": 1065,
+ "samples": 299,
+ "energy_source": "NVML total energy counter",
+ "persistence_enabled": [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true
+ ],
+ "locked": {
+  "power_W": [
+   63.479905906311984,
+   66.04036521456186,
+   67.53610707031294,
+   70.22583377138628,
+   65.24190199047318,
+   66.84727989753785,
+   63.6196544390941,
+   63.32362046381731
+  ],
+  "sampled_mean_W": [
+   63.61073913043476,
+   65.94174581939777,
+   67.44862207357863,
+   70.36137792642126,
+   65.15005685618728,
+   66.73247491638814,
+   63.65685284280955,
+   63.4576086956519
+  ],
+  "sm_mhz_min": [
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065
+  ],
+  "sm_mhz_max": [
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065,
+   1065
+  ],
+  "mem_mhz": [
+   1593,
+   1593,
+   1593,
+   1593,
+   1593,
+   1593,
+   1593,
+   1593
+  ],
+  "temp_C": [
+   32,
+   29,
+   31,
+   33,
+   32,
+   30,
+   29,
+   30
+  ]
+ },
+ "method": "NVML total-energy counter over 30 s / elapsed, before any CUDA context (measure.py idle; mg32 idle_baseline)"
+}

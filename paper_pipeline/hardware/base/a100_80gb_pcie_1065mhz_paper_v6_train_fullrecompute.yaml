@@ -1,0 +1,135 @@
+sw_param:
+  full_recomputation: true
+  inference_step_overhead: 0.00072
+  inference_prefill_overhead: 0.00159
+  precision:
+    tensor_format: bf16
+    kv_cache: bf16
+    parameters: fp32
+    gradients: fp32
+    grad_communication: fp32
+    optimizer_states: fp32
+    stats: bf16
+    master_parameters: 0.0
+  h2d_bandwidth: -1
+  const_mem_offset: 0 GB
+static_power_w: 54.0
+tech_param:
+  core:
+    architecture: sm80
+    operating_frequency: 1.065e9
+    num_bundles: 108
+    nominal_energy_per_flop: 4.431e-13
+    tensor_energy_per_flop: 4.431e-13
+    vector_energy_per_flop: 8.21001e-12
+    device_fixed_overhead_cycles: 5325
+    num_mcu_per_bundle: 4
+    matrix_unit:
+      nominal_flop_rate_per_mcu: 512
+      util: 1.0
+      FMA_d1: 8
+      FMA_d2: 4
+      dataflow: best
+    vector_unit:
+      nominal_flop_rate_per_bundle: 128
+      util: 1.0
+      lanes: 64
+      simd_width: 1
+      vector_width_bits: 32
+    padded_tensor_energy_per_flop: 2.3421e-13
+  DRAM:
+    size: 80 GB
+    bandwidth: 1548000000000.0
+    sector_size_bytes: 32
+    latency_cycles: 566
+    util: 1.0
+    latency: 5.31455399061e-07
+    dynamic_energy_per_sector: 2.12444928e-09
+  SRAM-L2:
+    size: 40 MB
+    bandwidth: 3247872340430.0
+    sector_size_bytes: 32
+    latency_cycles: 202.8
+    util: 1.0
+    latency: 1.90422535211e-07
+    dynamic_energy_per_sector: 7.6324608e-10
+  SRAM-L1:
+    size: 18137088
+    bandwidth: 11178723404300.0
+    sector_size_bytes: 32
+    latency_cycles: 29
+    util: 1.0
+    latency: 2.72300469484e-08
+    dynamic_energy_per_sector: 2.5765632e-10
+  SRAM-R:
+    size: 27 MB
+    bandwidth: 122 TB
+    latency: 0
+    util: 1.0
+    dynamic_energy_per_byte: 0.0
+memory_hierarchy:
+  l0:
+    type: SRAM-R
+    scope: mcu
+  l1:
+    type: SRAM-L1
+    scope: mcu-bundle
+  l2:
+    type: SRAM-L2
+    scope: global
+  l3:
+    type: DRAM
+    scope: global
+parallelism:
+  tp: 1
+  tp_sp: false
+  cp: 1
+  pp: 1
+  mb: 1
+  train:
+    dp: 1
+    ep: 1
+    tp_ep: true
+  inference:
+    replica_count: 1
+    moe_dp: 1
+network:
+  overlap:
+    tp_overlap: 0.0
+    tp_sp_overlap: 0.0
+    cp_overlap: 0.0
+  dimensions:
+  - id: dim0
+    label: local_pcie
+    size: 1
+    topology:
+      type: Ring
+      bandwidth: 25 GB
+      latency: 5e-6
+      energy_per_bit: 8.0e-12
+      util: 1.0
+      optimize_2dmap: false
+    collective_override: {}
+    parallelisms:
+    - tp
+    - cp
+    - ep
+    - pp
+    - dp
+execution_backend:
+  model: analytical
+  astrasim:
+    backend: astrasim
+    mode: full_astrasim_hierarchical
+    collectives:
+      all_gather: auto
+      all_reduce: auto
+      reduce_scatter: auto
+      all_to_all: auto
+    sys_options:
+      endpoint_delay: 5
+      active_chunks_per_dimension: 32
+      preferred_dataset_splits: 4
+      collective_arbitration: last_resort
+inference:
+  kvcache_type: hbm_only

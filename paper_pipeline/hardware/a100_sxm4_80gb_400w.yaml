@@ -1,0 +1,271 @@
+sku: A100-SXM4-80GB
+clock_hz: per_run_measured
+base_clock_hz: 1275000000.0
+gpus: 8
+interconnect: nvswitch
+power_limit_w: 400
+literature_tier: paper
+base:
+  inference: paper_pipeline/hardware/base/a100_sxm4_80gb_400w_inference.yaml
+  train_norecompute: paper_pipeline/hardware/base/a100_sxm4_80gb_400w_train_norecompute.yaml
+base_sha256:
+  inference: a876928b0cd58cf2
+  train_norecompute: 4b49f29ece4f2a2a
+base_field_sources:
+  tech_param.core.architecture: NVIDIA CUDA 12.6 C++ Programming Guide, compute capability 8.0 (A100), Table 21; https://docs.nvidia.com/cuda/archive/12.6.0/cuda-c-programming-guide/index.html#compute-capabilities
+  sw_param.full_recomputation: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation); train_norecompute base false = distributed_runs/megatron_multi/mm_train.py
+    recompute_granularity=None (no recomputation)
+  sw_param.inference_step_overhead: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.inference_prefill_overhead: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.precision.tensor_format: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.precision.mixed_precision: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.precision.param_storage_mode: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.precision.kv_cache: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  sw_param.h2d_bandwidth: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  static_power_w: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  tech_param.core.operating_frequency: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.num_bundles: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.nominal_energy_per_flop: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.tensor_energy_per_flop: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.vector_energy_per_flop: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.device_fixed_overhead_cycles: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study
+    configuration; not an independent literature citation)
+  tech_param.core.num_mcu_per_bundle: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.matrix_unit.nominal_flop_rate_per_mcu: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited
+    study configuration; not an independent literature citation)
+  tech_param.core.matrix_unit.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.matrix_unit.FMA_d1: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.matrix_unit.FMA_d2: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.matrix_unit.dataflow: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.vector_unit.nominal_flop_rate_per_bundle: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited
+    study configuration; not an independent literature citation)
+  tech_param.core.vector_unit.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.vector_unit.lanes: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.vector_unit.simd_width: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.core.vector_unit.vector_width_bits: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study
+    configuration; not an independent literature citation)
+  tech_param.core.padded_tensor_energy_per_flop: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study
+    configuration; not an independent literature citation)
+  tech_param.DRAM.size: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  tech_param.DRAM.bandwidth: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.DRAM.sector_size_bytes: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.DRAM.latency_cycles: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml; Luo et al. Table 3 reports A100 global memory 566 cycles (https://arxiv.org/abs/2501.12084)
+  tech_param.DRAM.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  tech_param.DRAM.latency: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.DRAM.dynamic_energy_per_sector: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-L2.size: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L2.bandwidth: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-L2.sector_size_bytes: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-L2.latency_cycles: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml; Luo et al. Table 3 reports A100 L2 202.8-408 cycles (https://arxiv.org/abs/2501.12084)
+  tech_param.SRAM-L2.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L2.latency: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L2.dynamic_energy_per_sector: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study
+    configuration; not an independent literature citation)
+  tech_param.SRAM-L1.size: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L1.bandwidth: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-L1.sector_size_bytes: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-L1.latency_cycles: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml; Luo et al. Table 3 reports A100 shared memory 29 cycles (https://arxiv.org/abs/2501.12084)
+  tech_param.SRAM-L1.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L1.latency: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-L1.dynamic_energy_per_sector: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study
+    configuration; not an independent literature citation)
+  tech_param.SRAM-R.size: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  tech_param.SRAM-R.bandwidth: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  tech_param.SRAM-R.latency: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  tech_param.SRAM-R.util: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  tech_param.SRAM-R.dynamic_energy_per_byte: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  memory_hierarchy.l0.type: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l0.scope: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l1.type: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l1.scope: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l2.type: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l2.scope: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l3.type: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  memory_hierarchy.l3.scope: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  parallelism.tp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  parallelism.tp_sp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  parallelism.cp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  parallelism.pp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  parallelism.mb: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  parallelism.train.dp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  parallelism.train.ep: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+  parallelism.train.tp_ep: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  parallelism.inference.replica_count: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  parallelism.inference.moe_dp: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  parallelism.auto: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an independent
+    literature citation)
+  network.overlap.tp_overlap: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.overlap.tp_sp_overlap: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.overlap.cp_overlap: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].id: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  network.dimensions[0].label: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  network.dimensions[0].size: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  network.dimensions[0].topology.type: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].topology.bandwidth: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].topology.latency: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].topology.energy_per_bit: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].topology.util: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  network.dimensions[0].parallelisms[0]: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  execution_backend.model: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not
+    an independent literature citation)
+  execution_backend.astrasim.backend: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  execution_backend.astrasim.mode: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration;
+    not an independent literature citation)
+  execution_backend.astrasim.collectives.all_gather: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  execution_backend.astrasim.collectives.all_reduce: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  execution_backend.astrasim.collectives.reduce_scatter: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  execution_backend.astrasim.collectives.all_to_all: paper_pipeline/settings/paper.yaml:network (C1-C3, C6, F2-F3; overlay.py applies per-run peer bandwidth)
+  execution_backend.astrasim.sys_options.endpoint_delay: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited
+    study configuration; not an independent literature citation)
+  execution_backend.astrasim.sys_options.active_chunks_per_dimension: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml
+    (inherited study configuration; not an independent literature citation)
+  execution_backend.astrasim.sys_options.preferred_dataset_splits: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml
+    (inherited study configuration; not an independent literature citation)
+  inference.kvcache_type: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml (inherited study configuration; not an
+    independent literature citation)
+identity_sources:
+  sku: paper_pipeline/registry.yaml multi_gpu42_vllm title and suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml
+    template
+  gpus: paper_pipeline/registry.yaml multi_gpu42_vllm title (node capacity); actual run count from measured CSV n_gpus
+  interconnect: paper_pipeline/registry.yaml multi_gpu42_vllm assumptions and paper_pipeline/settings/paper.yaml network (NVSwitch represented by FullyConnected)
+  power_limit_w: paper_pipeline/registry.yaml multi_gpu42_vllm title (node power limit)
+  clock_hz: paper_pipeline/registry.yaml workload.rules.clock, designation C17 and measured CSV sm_mhz_per_gpu
+  base_clock_hz: suite/historical_validation/inference/energy_latency_v6/configs/2gpu_b1_in128_out512.hardware.yaml tech_param.core.operating_frequency (template
+    clock)
+  literature_tier: paper_pipeline/hardware/a100_sxm4_80gb_1275_study.yaml and a100_literature.py Live paper tier
+  base: suite/historical_validation/inference/energy_latency_v6/cases.csv hardware_config and referenced inference hardware config
+  base_sha256: SHA-256 of base.inference bytes, first 16 hexadecimal characters
+runtime_field_sources:
+  tech_param.core.operating_frequency: mean measured CSV sm_mhz_per_gpu (one clock per GPU), MHz converted to Hz; designation C17
+  parallelism.tp: measured CSV n_gpus for inference tensor parallel runs
+  tech_param.core.nominal_energy_per_flop: 'a100_literature.py core_energy: Antepara SC 2025 matrix FP16 x Schoonhoven V-f interpolation'
+  tech_param.core.tensor_energy_per_flop: 'a100_literature.py core_energy: Antepara SC 2025 matrix FP16 x Schoonhoven V-f interpolation'
+  tech_param.core.vector_energy_per_flop: 'a100_literature.py core_energy: Antepara SC 2025 vector FP16 x Schoonhoven V-f interpolation'
+  tech_param.core.padded_tensor_energy_per_flop: 'a100_literature.py core_energy: Antepara SC 2025 matrix control x Schoonhoven V-f interpolation'
+  tech_param.core.device_fixed_overhead_cycles: 'a100_literature.py launch_floor_cycles: TaxBreak 5 us x measured frequency'
+  static_power_w: 'a100_literature.py STATIC_POWER_W: Antepara SC 2025 constant power'
+  tech_param.DRAM.bandwidth: 'a100_literature.py DRAM_SPEC_BPS and MEMORY_BANDWIDTH_FRACTION: vendor SXM4 80GB peak x RAPID-LLM calibration'
+  tech_param.DRAM.dynamic_energy_per_sector: 'a100_literature.py per_byte_energy: Antepara SC 2025 energy x Schoonhoven V-f interpolation x inherited 32-byte sector'
+  tech_param.DRAM.latency: inherited study latency_cycles divided by measured clock in a100_literature.py; Luo et al. Table 3 (https://arxiv.org/abs/2501.12084)
+  tech_param.DRAM.util: a100_literature.py transform paper tier; inherited model policy value 1.0
+  tech_param.SRAM-L2.dynamic_energy_per_sector: 'a100_literature.py per_byte_energy: Antepara SC 2025 energy x Schoonhoven V-f interpolation x inherited 32-byte sector'
+  tech_param.SRAM-L2.latency: inherited study latency_cycles divided by measured clock in a100_literature.py; Luo et al. Table 3 (https://arxiv.org/abs/2501.12084)
+  tech_param.SRAM-L2.util: a100_literature.py transform paper tier; inherited model policy value 1.0
+  tech_param.SRAM-L1.dynamic_energy_per_sector: 'a100_literature.py per_byte_energy: Antepara SC 2025 energy x Schoonhoven V-f interpolation x inherited 32-byte sector'
+  tech_param.SRAM-L1.latency: inherited study shared-memory latency_cycles divided by measured clock in a100_literature.py; Luo et al. Table 3 (https://arxiv.org/abs/2501.12084)
+  tech_param.SRAM-L1.util: a100_literature.py transform paper tier; inherited model policy value 1.0
+  tech_param.SRAM-L2.bandwidth: 'a100_literature.py bandwidth constant: Antepara SC 2025 at 1410 MHz, scaled linearly by measured clock'
+  tech_param.SRAM-L1.bandwidth: 'a100_literature.py bandwidth constant: Antepara SC 2025 at 1410 MHz, scaled linearly by measured clock'
+  tech_param.SRAM-R.dynamic_energy_per_byte: 'a100_literature.py REGISTER_PJ_PER_BYTE: Antepara SC 2025 register energy folded into FPU energies'
+  tech_param.core.matrix_unit.util: 'a100_literature.py MATRIX_UTIL: RAPID-LLM calibration rule'
+  sw_param.inference_step_overhead: 'a100_literature.py DECODE_STEP_OVERHEAD_S: measured vLLM A100 PCIe; paper setting C14/F7'
+  sw_param.inference_prefill_overhead: 'a100_literature.py PREFILL_OVERHEAD_S: measured vLLM A100 PCIe; paper setting C14/F7'
+  network.dimensions[0].topology: paper_pipeline/settings/paper.yaml network C1-C3/C6; overlay.py computes per-peer bandwidth from per-run GPU count
+  sw_param.collective_launch_overhead: paper_pipeline/settings/paper.yaml network.collective_launch_overhead_s C1; NCCL tuning.cc Ring/Simple baseLat
+  execution_backend.astrasim.sys_options.active_chunks_per_dimension: paper_pipeline/settings/paper.yaml network.active_chunks_per_dimension C5
+  sw_param.kernel_launch_overhead: paper_pipeline/settings/paper.yaml hardware.sw_param.kernel_launch_overhead; see inline provenance and assumptions (explicitly
+    inherited, unsourced; launch overhead overridden by device launch floor)
+  sw_param.dp_zero_stage: paper_pipeline/settings/paper.yaml hardware.sw_param.dp_zero_stage; see inline provenance and assumptions
+  sw_param.dp_microbatch: paper_pipeline/settings/paper.yaml hardware.sw_param.dp_microbatch; see inline provenance and assumptions
+  tech_param.core.tensor_latency_cycles: paper_pipeline/settings/paper.yaml; Sun et al. Table V FP16 m16n8k16 24.7 cycles rounded to 25 (https://arxiv.org/abs/2206.02874)
+  tech_param.core.max_ctas_per_sm: paper_pipeline/settings/paper.yaml hardware.tech_param.core.max_ctas_per_sm; see inline provenance and assumptions
+  tech_param.core.max_warps_per_sm: paper_pipeline/settings/paper.yaml hardware.tech_param.core.max_warps_per_sm; see inline provenance and assumptions
+  tech_param.SRAM-L2.cache.line_bytes: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.line_bytes; see inline provenance and assumptions
+  tech_param.SRAM-L2.cache.partitions: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.partitions; see inline provenance and assumptions
+  tech_param.SRAM-L2.cache.associativity: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.associativity; see inline provenance and assumptions
+  tech_param.SRAM-L2.cache.dirty_ways: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.dirty_ways; see inline provenance and assumptions
+  tech_param.SRAM-L2.cache.sources.line_bytes: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.sources.line_bytes; see inline provenance and
+    assumptions
+  tech_param.SRAM-L2.cache.sources.partitions: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.sources.partitions; see inline provenance and
+    assumptions
+  tech_param.SRAM-L2.cache.sources.associativity: paper_pipeline/settings/paper.yaml hardware.tech_param.SRAM-L2.cache.sources.associativity; see inline provenance
+    and assumptions
+  l2_model.step_simulation: paper_pipeline/settings/paper.yaml hardware.l2_model.step_simulation; see inline provenance and assumptions
+  l2_model.sharing_classes: paper_pipeline/settings/paper.yaml hardware.l2_model.sharing_classes; see inline provenance and assumptions
+  l2_model.private_copies: paper_pipeline/settings/paper.yaml hardware.l2_model.private_copies; see inline provenance and assumptions
+  l2_model.capacity: paper_pipeline/settings/paper.yaml hardware.l2_model.capacity; see inline provenance and assumptions
+  l2_model.gemm_min_tile_m: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_min_tile_m; see inline provenance and assumptions
+  l2_model.gemm_tile.order: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.order; see inline provenance and assumptions
+  l2_model.gemm_tile.single_miss: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.single_miss; see inline provenance and assumptions
+  l2_model.gemm_tile.miss_shape: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.miss_shape; see inline provenance and assumptions
+  l2_model.gemm_tile.default_launch_order.sweep_axis: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.default_launch_order.sweep_axis; see inline provenance
+    and assumptions
+  l2_model.gemm_tile.default_launch_order.strip_width: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.default_launch_order.strip_width; see inline
+    provenance and assumptions
+  l2_model.gemm_tile.default_launch_order.serpentine: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.default_launch_order.serpentine; see inline provenance
+    and assumptions
+  l2_model.gemm_tile.ws_order: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.ws_order; see inline provenance and assumptions
+  l2_model.gemm_tile.ef_stores: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.ef_stores; see inline provenance and assumptions
+  l2_model.gemm_tile.strip_in_wave: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.strip_in_wave; see inline provenance and assumptions
+  l2_model.gemm_tile.splitk: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.splitk; see inline provenance and assumptions
+  l2_model.gemm_tile.splitk_writes: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.splitk_writes; see inline provenance and assumptions
+  l2_model.gemm_tile.raster_weight_stationary: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.raster_weight_stationary; see inline provenance and
+    assumptions
+  l2_model.gemm_tile.dram_read_ecc: paper_pipeline/settings/paper.yaml hardware.l2_model.gemm_tile.dram_read_ecc; see inline provenance and assumptions
+  l2_model.collective_buffers: paper_pipeline/registry.yaml variants.collective_buffers; selected alternative for this run

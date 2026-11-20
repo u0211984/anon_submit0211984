@@ -1,0 +1,23 @@
+{
+ "rounding": "reproduced MAPEs are rounded to two decimals and then half-up to the one decimal printed in the paper",
+ "counts": {
+  "A100": {"n": 99, "mape": 3.3},
+  "H100": {"n": 52, "mape": 6.6}
+ },
+ "energy": {
+  "single_vllm": {"n": 84, "mape": 3.4},
+  "single_training": {"n": 43, "mape": 4.4},
+  "multi_vllm": {"n": 32, "mape": 6.8},
+  "multi_megatron": {"n": 27, "mape": 3.0}
+ },
+ "step_time": {
+  "single_vllm": {"n": 84, "mape": 8.4},
+  "single_training": {"n": 43, "mape": 5.8},
+  "multi_vllm": {"n": 32, "mape": 5.6},
+  "multi_megatron": {"n": 27, "mape": 4.3}
+ },
+ "energylens": {
+  "tokenjoule": {"n": 81, "mape": 9.5},
+  "energylens": {"n": 81, "mape": 16.1}
+ }
+}

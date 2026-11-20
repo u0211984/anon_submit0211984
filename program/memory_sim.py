@@ -1,0 +1,606 @@
+from __future__ import annotations
+
+import os
+from heapq import heappop, heappush
+from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+
+from memory_estimation import MemKind, NON_TRANSFORMER_KINDS, TRANSFORMER_OP_KINDS
+from program import _env_flag
+from program.analytic_sim import COMM_DURATIONS_KEY
+from program.ir import CollectiveOp, ComputeOp, Direction, Program
+
+debug = False
+BYTES_PER_GIB = 1024 ** 3
+
+def require_flat_program(program: Program) -> Program:
+    if not isinstance(program, Program):
+        raise TypeError(
+            f"simulate_memory expects a Program (got {type(program).__name__})"
+        )
+    if program.meta.misc.get("granularity") != "flat":
+        raise RuntimeError(
+            "Memory simulation requires a FLAT program. "
+            "Use LLMExecutionDispatcher.build_flat_program_for_memory()."
+        )
+    return program
+
+class _MemorySnapshot:
+    def __init__(self, num_devices: int, output_dir: Optional[str], file_basename: str) -> None:
+        self.static: List[float] = [0.0 for _ in range(num_devices)]
+        self.current: List[float] = [0.0 for _ in range(num_devices)]
+        self.peak: List[float] = [0.0 for _ in range(num_devices)]
+        self._log_files: List[Optional[Any]] = [None for _ in range(num_devices)]
+        self._log_paths: List[Optional[str]] = [None for _ in range(num_devices)]
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+            for gpu_idx in range(num_devices):
+                log_path = os.path.join(output_dir, f"{file_basename}_gpu_{gpu_idx}_memory_log.txt")
+                self._log_paths[gpu_idx] = log_path
+                log_file = open(log_path, "w", encoding="utf-8", buffering=1024 * 1024)
+                log_file.write(
+                    "timestamp_s | action               | delta_gib   | static_gib  | current_gib | peak_gib    | details\n"
+                )
+                self._log_files[gpu_idx] = log_file
+
+    def add_static(self, gpu_id: int, size_bytes: float, timestamp: float = 0.0) -> None:
+        if size_bytes <= 0:
+            return
+        self.static[gpu_id] += size_bytes
+        self.current[gpu_id] += size_bytes
+        self._update_peak(gpu_id)
+        self._record_change(
+            gpu_id,
+            "static_allocate",
+            size_bytes,
+            timestamp,
+            details="static_mem",
+        )
+
+    def allocate_activation(
+        self,
+        gpu_id: int,
+        op: Any,
+        timestamp: float,
+        size_bytes: float,
+        action: str = "allocate_activation",
+    ) -> None:
+        if size_bytes <= 0 or gpu_id < 0 or gpu_id >= len(self.current):
+            return
+        self.current[gpu_id] += size_bytes
+        details = _details(op)
+        self._update_peak(gpu_id)
+        self._record_change(gpu_id, action, size_bytes, timestamp, details=details)
+
+    def release_activation(
+        self,
+        gpu_id: int,
+        op: Any,
+        timestamp: float,
+        size_bytes: float,
+        action: str = "release_activation",
+    ) -> None:
+        if size_bytes <= 0 or gpu_id < 0 or gpu_id >= len(self.current):
+            return
+        self.current[gpu_id] = max(0.0, self.current[gpu_id] - size_bytes)
+        details = _details(op)
+        self._record_change(gpu_id, action, -size_bytes, timestamp, details=details)
+
+    def allocate_ephemeral(self, gpu_id: int, op: Any, timestamp: float, size_bytes: float) -> None:
+        self.allocate_activation(
+            gpu_id,
+            op,
+            timestamp,
+            size_bytes,
+            action="allocate_ephemeral",
+        )
+
+    def release_ephemeral(self, gpu_id: int, op: Any, timestamp: float, size_bytes: float) -> None:
+        self.release_activation(
+            gpu_id,
+            op,
+            timestamp,
+            size_bytes,
+            action="release_ephemeral",
+        )
+
+    def summary(self) -> List[Dict[str, float]]:
+        summary: List[Dict[str, float]] = []
+        for idx in range(len(self.current)):
+            static_gib = self.static[idx] / BYTES_PER_GIB
+            current_gib = self.current[idx] / BYTES_PER_GIB
+            peak_gib = self.peak[idx] / BYTES_PER_GIB
+            summary.append(
+                {
+                    "gpu_id": idx,
+                    "static_gib": static_gib,
+                    "current_gib": current_gib,
+                    "peak_gib": peak_gib,
+                }
+            )
+        return summary
+
+    def _update_peak(self, gpu_id: int) -> None:
+        if self.current[gpu_id] > self.peak[gpu_id]:
+            self.peak[gpu_id] = self.current[gpu_id]
+
+    def _record_change(
+        self,
+        gpu_id: int,
+        action: str,
+        delta_bytes: float,
+        timestamp: float,
+        *,
+        details: str = "",
+    ) -> None:
+        if not self._log_files or gpu_id < 0 or gpu_id >= len(self._log_files):
+            return
+        log_file = self._log_files[gpu_id]
+        if log_file is None:
+            return
+
+        delta_gib = delta_bytes / BYTES_PER_GIB
+        static_gib = self.static[gpu_id] / BYTES_PER_GIB
+        current_gib = self.current[gpu_id] / BYTES_PER_GIB
+        peak_gib = self.peak[gpu_id] / BYTES_PER_GIB
+        line = "{:.6f} | {:<20} | {:>+.6f} | {:>+.6f} | {:>+.6f} | {:>+.6f}".format(
+            timestamp,
+            action,
+            delta_gib,
+            static_gib,
+            current_gib,
+            peak_gib,
+        )
+        if details:
+            line = f"{line} | {details}"
+        log_file.write(line + "\n")
+
+    def close(self) -> None:
+        if not self._log_files:
+            return
+        for handle in self._log_files:
+            if handle:
+                handle.close()
+
+def _details(op: Any) -> str:
+    return "node={} op_id={} fwd={}".format(
+        getattr(op, "name", "unknown"),
+        getattr(op, "uid", "N/A"),
+        _is_forward(op),
+    )
+
+def _is_forward(op: Any) -> bool:
+    return getattr(op, "direction", Direction.FORWARD) is Direction.FORWARD
+
+def simulate_memory(
+    program: Program,
+    memory_data: Dict[str, Any],
+    mode: str = "training",
+    output_folder: str = "output/LLM/",
+    filename: str = "memory_graph",
+) -> Tuple[float, float]:
+    require_flat_program(program)
+    ops = program.ops
+
+    persistent_by_kind = memory_data.get("persistent_bytes_by_kind", {}) or {}
+    transient_by_kind = memory_data.get("transient_bytes_by_kind", {}) or {}
+    persistent_by_kind_dense = memory_data.get("persistent_bytes_by_kind_dense", persistent_by_kind) or {}
+    persistent_by_kind_moe = memory_data.get("persistent_bytes_by_kind_moe", persistent_by_kind_dense) or {}
+    transient_by_kind_dense = memory_data.get("transient_bytes_by_kind_dense", transient_by_kind) or {}
+    transient_by_kind_moe = memory_data.get("transient_bytes_by_kind_moe", transient_by_kind_dense) or {}
+    valid_kinds = set(persistent_by_kind) | set(transient_by_kind)
+    param_gather_bytes = float(memory_data.get("param_gather_bytes", 0.0) or 0.0)
+
+    def _is_transformer_block(op: Any) -> bool:
+        if not isinstance(op, ComputeOp):
+            return False
+        mem_kind = op.mem_kind
+        if not isinstance(mem_kind, MemKind):
+            return False
+        if mem_kind in NON_TRANSFORMER_KINDS:
+            return False
+        return mem_kind in TRANSFORMER_OP_KINDS or mem_kind in valid_kinds
+
+    def _op_mem_kind(op: Any) -> Optional[MemKind]:
+        if not isinstance(op, ComputeOp):
+            return None
+        return op.mem_kind if isinstance(op.mem_kind, MemKind) else None
+
+    def _bytes_for_kind(kind: Optional[MemKind], mapping: Dict[MemKind, float]) -> float:
+        if kind not in mapping:
+            return 0.0
+        return float(mapping[kind] or 0.0)
+
+    def _persistent_bytes_for_op(op: Any) -> float:
+        mem_kind = _op_mem_kind(op)
+        mapping = (
+            persistent_by_kind_moe
+            if getattr(op, "is_moe_layer", False) and _is_transformer_block(op)
+            else persistent_by_kind_dense
+        )
+        return _bytes_for_kind(mem_kind, mapping)
+
+    def _transient_bytes_for_op(op: Any) -> float:
+        mem_kind = _op_mem_kind(op)
+        mapping = (
+            transient_by_kind_moe
+            if getattr(op, "is_moe_layer", False) and _is_transformer_block(op)
+            else transient_by_kind_dense
+        )
+        return _bytes_for_kind(mem_kind, mapping)
+
+    base_devices = max(1, len(program.devices))
+    dense_layers_by_device: Dict[int, Set[Any]] = {}
+    moe_layers_by_device: Dict[int, Set[Any]] = {}
+    for op in ops:
+        if not isinstance(op, ComputeOp):
+            continue
+        device = int(op.device)
+        if device < 0:
+            continue
+        base_devices = max(base_devices, device + 1)
+        if op.layer is None or not _is_transformer_block(op) or not _is_forward(op):
+            continue
+        if op.is_moe_layer:
+            moe_layers_by_device.setdefault(device, set()).add(op.layer)
+        else:
+            dense_layers_by_device.setdefault(device, set()).add(op.layer)
+
+    transformer_dense_layers_per_device = [
+        len(dense_layers_by_device.get(idx, ())) for idx in range(base_devices)
+    ]
+    transformer_moe_layers_per_device = [
+        len(moe_layers_by_device.get(idx, ())) for idx in range(base_devices)
+    ]
+
+    write_memory_logs = _env_flag("RAPID_DEBUG_MEMORY") or _env_flag("RAPID_MEMORY_EVENT_LOGS")
+    memory_output_dir: Optional[str] = None
+    if output_folder and write_memory_logs:
+        memory_output_dir = os.path.join(output_folder, "memory-summary")
+    static_mem_per_layer = memory_data.get("static_mem_per_layer", 0)
+    static_mem_per_layer_dense = memory_data.get("static_mem_per_layer_dense", static_mem_per_layer)
+    static_mem_per_layer_moe = memory_data.get("static_mem_per_layer_moe", static_mem_per_layer_dense)
+    weight_mem_per_layer = memory_data.get("weight_mem_per_layer", 0)
+    weight_mem_per_layer_dense = memory_data.get("weight_mem_per_layer_dense", weight_mem_per_layer)
+    weight_mem_per_layer_moe = memory_data.get("weight_mem_per_layer_moe", weight_mem_per_layer_dense)
+    kv_cache_bytes_per_layer = memory_data.get("kv_cache_bytes_per_layer", 0.0)
+    extra_static_bytes_per_device = memory_data.get("extra_static_bytes_per_device", {}) or {}
+    total_tracked_layers = sum(transformer_dense_layers_per_device) + sum(transformer_moe_layers_per_device)
+    if total_tracked_layers == 0:
+        transformer_dense_layers_per_device = [1 for _ in range(base_devices)]
+        transformer_moe_layers_per_device = [0 for _ in range(base_devices)]
+
+    gpu_free = [True for _ in range(base_devices)]
+    memory_snapshot = _MemorySnapshot(base_devices, memory_output_dir, filename)
+
+    for idx in range(base_devices):
+        if mode == "inference":
+            dense_count = (
+                transformer_dense_layers_per_device[idx]
+                if idx < len(transformer_dense_layers_per_device)
+                else 0
+            )
+            moe_count = (
+                transformer_moe_layers_per_device[idx]
+                if idx < len(transformer_moe_layers_per_device)
+                else 0
+            )
+            layer_count = dense_count + moe_count
+            if layer_count == 0:
+                dense_count = 1
+                layer_count = 1
+            static_bytes = (weight_mem_per_layer_dense * dense_count) + (
+                weight_mem_per_layer_moe * moe_count
+            )
+            if kv_cache_bytes_per_layer:
+                static_bytes += kv_cache_bytes_per_layer * layer_count
+        elif mode == "training":
+            dense_count = (
+                transformer_dense_layers_per_device[idx]
+                if idx < len(transformer_dense_layers_per_device)
+                else 0
+            )
+            moe_count = (
+                transformer_moe_layers_per_device[idx]
+                if idx < len(transformer_moe_layers_per_device)
+                else 0
+            )
+            layer_count = dense_count + moe_count
+            if layer_count == 0:
+                dense_count = 1
+                layer_count = 1
+            static_bytes = (static_mem_per_layer_dense * dense_count) + (
+                static_mem_per_layer_moe * moe_count
+            )
+        else:
+            raise ValueError(f"Invalid mode '{mode}' for memory simulation")
+        static_bytes += extra_static_bytes_per_device.get(idx, 0.0)
+        memory_snapshot.add_static(idx, static_bytes, timestamp=0.0)
+
+    stored: Optional[Sequence[float]] = program.meta.misc.get(COMM_DURATIONS_KEY)
+    durations: List[float] = [0.0] * len(ops)
+    for op in ops:
+        if isinstance(op, ComputeOp):
+            durations[op.uid] = float(op.duration[0])
+        elif stored is not None:
+            durations[op.uid] = float(stored[op.uid])
+
+    succs: List[List[int]] = [[] for _ in ops]
+    for op in ops:
+        for dep in op.deps:
+            succs[dep].append(op.uid)
+    for entry in succs:
+        entry.sort()
+
+    is_compute_arr: List[bool] = [isinstance(op, ComputeOp) for op in ops]
+    persistent_arr: List[float] = [0.0] * len(ops)
+    transient_arr: List[float] = [0.0] * len(ops)
+    forward_arr: List[bool] = [False] * len(ops)
+    gather_arr: List[bool] = [False] * len(ops)
+    device_arr: List[int] = [0] * len(ops)
+    for op in ops:
+        if isinstance(op, ComputeOp):
+            uid = int(op.uid)
+
+            if not op.split_head:
+                persistent_arr[uid] = _persistent_bytes_for_op(op)
+                transient_arr[uid] = _transient_bytes_for_op(op)
+            forward_arr[uid] = _is_forward(op)
+            gather_arr[uid] = bool(op.param_gather)
+            device_arr[uid] = int(op.device)
+
+    checkpoint_bytes = float(memory_data.get("checkpoint_input_bytes", 0.0))
+    checkpoint_keys = [None] * len(ops)
+    backward_remaining = {}
+    if mode == "training" and checkpoint_bytes > 0:
+        for op in ops:
+            if (isinstance(op, ComputeOp) and _is_transformer_block(op)
+                    and op.layer is not None and op.micro_batch is not None):
+                key = (int(op.device), op.micro_batch, op.layer)
+                checkpoint_keys[op.uid] = key
+                if not _is_forward(op):
+                    backward_remaining[key] = backward_remaining.get(key, 0) + 1
+    live_checkpoints = set()
+
+    def checkpoint_on_issue(uid, timestamp):
+        key = checkpoint_keys[uid]
+        if key is None:
+            return
+        op = ops[uid]
+        if _is_forward(op) and not op.recompute and key not in live_checkpoints:
+            if key not in backward_remaining:
+                raise ValueError(f"checkpoint has no backward consumer: {key}")
+            memory_snapshot.allocate_activation(
+                op.device, op, timestamp, checkpoint_bytes,
+                action="allocate_checkpoint",
+            )
+            live_checkpoints.add(key)
+        elif op.recompute and key not in live_checkpoints:
+            raise ValueError(f"recompute has no live input checkpoint: {key}")
+
+    zero_moe_gathers = memory_data.get("zero_moe_gather_bytes")
+    gathered_keys = [None] * len(ops)
+    gathered_remaining = {}
+    gathered_sizes = {}
+    live_gathered = set()
+    if mode == "training" and zero_moe_gathers is not None:
+        for op in ops:
+            if not isinstance(op, ComputeOp):
+                continue
+            if op.layer is not None:
+                category = "moe" if op.is_moe_layer else "dense"
+            elif op.mem_kind == MemKind.EMBEDDING:
+                category = "embedding"
+            elif op.mem_kind == MemKind.SOFTMAX:
+                category = "softmax"
+            else:
+                continue
+            size = float(zero_moe_gathers[category])
+            if size <= 0:
+                continue
+            key = (op.device, op.work) if op.work is not None else (
+                op.device, op.micro_batch, op.layer, op.direction, op.recompute, category)
+            gathered_keys[op.uid] = key
+            gathered_remaining[key] = gathered_remaining.get(key, 0) + 1
+            gathered_sizes[key] = size
+
+    def gathered_on_issue(uid, timestamp):
+        key = gathered_keys[uid]
+        if key is not None and key not in live_gathered:
+            op = ops[uid]
+            memory_snapshot.allocate_ephemeral(op.device, op, timestamp, gathered_sizes[key])
+            live_gathered.add(key)
+
+    gradient_sizes = {}
+    gradient_pending = {}
+    gradient_keys = [None] * len(ops)
+    live_gradients = set()
+    if mode == "training" and zero_moe_gathers is not None:
+        for op in ops:
+            if (isinstance(op, CollectiveOp) and op.work is not None
+                    and str(op.comm_key or "").startswith("zm_")
+                    and str(op.comm_key or "").endswith("_b_rs")):
+                key = (int(op.device), op.work)
+                gradient_keys[op.uid] = key
+                gradient_sizes[key] = gradient_sizes.get(key, 0.0) + float(op.size_bytes)
+                gradient_pending[key] = gradient_pending.get(key, 0) + 1
+
+    def gradient_on_issue(uid, timestamp):
+        op = ops[uid]
+        if not isinstance(op, ComputeOp) or op.direction is not Direction.BACKWARD or op.work is None:
+            return
+        key = (int(op.device), op.work)
+        if key in gradient_sizes and key not in live_gradients:
+            memory_snapshot.allocate_ephemeral(op.device, op, timestamp, gradient_sizes[key])
+            live_gradients.add(key)
+
+    remat_rules = memory_data.get("selective_recompute_remat") or [] if mode == "training" else []
+    remat_host = [None] * len(ops)
+    remat_release = [None] * len(ops)
+    remat_remaining: Dict[Any, int] = {}
+    remat_sizes: Dict[Any, float] = {}
+    live_remat: Set[Any] = set()
+    done_remat: Set[Any] = set()
+    for op in ops:
+        if (not isinstance(op, ComputeOp) or _is_forward(op) or op.layer is None
+                or not _is_transformer_block(op)):
+            continue
+        layer_type = "moe" if op.is_moe_layer else "dense"
+        hosts, releases = [], []
+        for rule_type, host_kinds, release_kind, nbytes in remat_rules:
+            if rule_type != layer_type:
+                continue
+            key = (int(op.device), op.micro_batch, op.layer, release_kind)
+            remat_sizes[key] = float(nbytes)
+            if op.mem_kind in host_kinds:
+                hosts.append(key)
+            if op.mem_kind == release_kind:
+                releases.append(key)
+                remat_remaining[key] = remat_remaining.get(key, 0) + 1
+        remat_host[op.uid] = hosts or None
+        remat_release[op.uid] = releases or None
+
+    def remat_on_issue(uid, timestamp):
+        for key in remat_host[uid] or ():
+            if key not in live_remat and key not in done_remat:
+                memory_snapshot.allocate_activation(ops[uid].device, ops[uid], timestamp, remat_sizes[key],
+                                                    action="allocate_recomputed")
+                live_remat.add(key)
+
+    pending: List[int] = [len(op.deps) for op in ops]
+
+    time: float = 0
+    counter = 0
+    heap: List[Tuple[float, int, int]] = []
+    ready: List[int] = []
+
+    for op in ops:
+        if not op.deps:
+            if remat_rules:
+                remat_on_issue(op.uid, 0.0)
+            checkpoint_on_issue(op.uid, 0.0)
+            gathered_on_issue(op.uid, 0.0)
+            gradient_on_issue(op.uid, 0.0)
+            heappush(heap, (durations[op.uid], counter, op.uid))
+            counter += 1
+            if debug:
+                print("{} enqueued at time 0".format(op.name))
+
+    training = mode == "training"
+    inference = mode == "inference"
+    while heap:
+        time, _, uid = heappop(heap)
+        if debug:
+            print("Event {} finished at time {}".format(ops[uid].name, time))
+
+        for child in succs[uid]:
+            pending[child] -= 1
+            if pending[child] == 0:
+                ready.append(child)
+                if debug:
+                    print("child {}  ready at time {} ".format(ops[child].name, time))
+
+        gradient_key = gradient_keys[uid]
+        if gradient_key is not None:
+            gradient_pending[gradient_key] -= 1
+            if gradient_pending[gradient_key] == 0:
+                if gradient_key not in live_gradients:
+                    raise ValueError(f"reduce-scatter has no live gradient buffer: {gradient_key}")
+                memory_snapshot.release_ephemeral(ops[uid].device, ops[uid], time, gradient_sizes[gradient_key])
+                live_gradients.remove(gradient_key)
+
+        if is_compute_arr[uid]:
+            event = ops[uid]
+            device = device_arr[uid]
+            gpu_free[device] = True
+            forward = forward_arr[uid]
+            persistent_bytes = persistent_arr[uid]
+            transient_bytes = transient_arr[uid]
+            if training:
+                if forward and persistent_bytes:
+                    memory_snapshot.allocate_activation(device, event, time, persistent_bytes)
+                if forward and transient_bytes:
+                    memory_snapshot.allocate_activation(device, event, time, transient_bytes)
+                    memory_snapshot.release_activation(device, event, time, transient_bytes)
+                if not forward and persistent_bytes:
+                    memory_snapshot.release_activation(device, event, time, persistent_bytes)
+            elif inference:
+                if forward and transient_bytes:
+                    memory_snapshot.allocate_activation(device, event, time, transient_bytes)
+                    memory_snapshot.release_activation(device, event, time, transient_bytes)
+            for key in remat_release[uid] or () if remat_rules else ():
+                remat_remaining[key] -= 1
+                if remat_remaining[key] == 0:
+                    if key not in live_remat:
+                        raise ValueError(f"selective recompute release without a live recomputed output: {key}")
+                    memory_snapshot.release_activation(device, event, time, remat_sizes[key],
+                                                       action="release_recomputed")
+                    live_remat.remove(key)
+                    done_remat.add(key)
+            key = checkpoint_keys[uid]
+            if key is not None and not forward:
+                backward_remaining[key] -= 1
+                if backward_remaining[key] == 0:
+                    if key not in live_checkpoints:
+                        raise ValueError(f"backward has no live checkpoint: {key}")
+                    memory_snapshot.release_activation(
+                        device, event, time, checkpoint_bytes,
+                        action="release_checkpoint",
+                    )
+                    live_checkpoints.remove(key)
+
+            gathered_key = gathered_keys[uid]
+            if gathered_key is not None:
+                gathered_remaining[gathered_key] -= 1
+                if gathered_remaining[gathered_key] == 0:
+                    memory_snapshot.release_ephemeral(device, event, time, gathered_sizes[gathered_key])
+                    live_gathered.remove(gathered_key)
+            if zero_moe_gathers is None and training and param_gather_bytes is not None and gather_arr[uid]:
+                memory_snapshot.release_ephemeral(device, event, time, param_gather_bytes)
+
+        if ready:
+            still_waiting: List[int] = []
+            for candidate in ready:
+                if is_compute_arr[candidate]:
+                    device = device_arr[candidate]
+                    if gpu_free[device]:
+                        if remat_rules:
+                            remat_on_issue(candidate, time)
+                        checkpoint_on_issue(candidate, time)
+                        gathered_on_issue(candidate, time)
+                        gradient_on_issue(candidate, time)
+                        if zero_moe_gathers is None and training and param_gather_bytes and gather_arr[candidate]:
+                            memory_snapshot.allocate_ephemeral(
+                                device, ops[candidate], time, param_gather_bytes
+                            )
+                        heappush(heap, (time + durations[candidate], counter, candidate))
+                        if debug:
+                            print(
+                                "{}.{} enqueued at time {} at device {}".format(
+                                    ops[candidate].name, candidate, time, device
+                                )
+                            )
+                        counter = counter + 1
+                        gpu_free[device] = False
+                    else:
+                        still_waiting.append(candidate)
+                else:
+                    heappush(heap, (time + durations[candidate], counter, candidate))
+                    if debug:
+                        print(
+                            "{}.{} enqueued at time {}".format(
+                                ops[candidate].name, candidate, time
+                            )
+                        )
+                    counter = counter + 1
+            ready = still_waiting
+
+    if live_checkpoints:
+        raise ValueError(f"unreleased layer checkpoints: {len(live_checkpoints)}")
+    if live_remat:
+        raise ValueError(f"unreleased selective-recompute outputs: {len(live_remat)}")
+    if live_gradients:
+        raise ValueError(f"unreleased reduce-scatter gradient buffers: {len(live_gradients)}")
+    summary = memory_snapshot.summary()
+    memory_snapshot.close()
+    peak_mem = max(entry["peak_gib"] for entry in summary) if summary else 0.0
+    return time, peak_mem

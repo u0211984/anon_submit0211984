@@ -1,0 +1,884 @@
+{
+ "target_s": 10.0,
+ "profile_steps": 10,
+ "groups": [
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp8",
+   "tp": 8,
+   "pp": 1,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.1022,
+      "cell_s": 23.7,
+      "peak_GB": 20.0,
+      "persist_GB": 18.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c01"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.1602,
+      "cell_s": 24.5,
+      "peak_GB": 21.9,
+      "persist_GB": 18.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c02"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.2828,
+      "cell_s": 26.4,
+      "peak_GB": 25.7,
+      "persist_GB": 18.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c03"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.5213,
+      "cell_s": 30.2,
+      "peak_GB": 33.3,
+      "persist_GB": 18.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c04"
+    }
+   ],
+   "skipped": [],
+   "est_s": 164.8,
+   "group": "g01_8b_tp8"
+  },
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp4",
+   "tp": 4,
+   "pp": 1,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.1791,
+      "cell_s": 24.8,
+      "peak_GB": 38.6,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c05"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.2736,
+      "cell_s": 26.3,
+      "peak_GB": 41.1,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c06"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.4758,
+      "cell_s": 29.5,
+      "peak_GB": 46.0,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c07"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.8669,
+      "cell_s": 35.8,
+      "peak_GB": 55.9,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c08"
+    }
+   ],
+   "skipped": [],
+   "est_s": 176.4,
+   "group": "g02_8b_tp4"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp8",
+   "tp": 8,
+   "pp": 1,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "config": "configs/Llama-2-13B.json",
+   "config_sha256": "2d20d705065c31956f11f582a8a5ead1ef6055bb47772503d1da0ddda5d22533",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.1631,
+      "cell_s": 25.6,
+      "peak_GB": 32.1,
+      "persist_GB": 29.3,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c09"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.256,
+      "cell_s": 27.1,
+      "peak_GB": 34.8,
+      "persist_GB": 29.3,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c10"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.452,
+      "cell_s": 30.2,
+      "peak_GB": 40.4,
+      "persist_GB": 29.3,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c11"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.8338,
+      "cell_s": 36.3,
+      "peak_GB": 51.4,
+      "persist_GB": 29.3,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c12"
+    }
+   ],
+   "skipped": [],
+   "est_s": 179.2,
+   "group": "g03_13b_tp8"
+  },
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp4dp2",
+   "tp": 4,
+   "pp": 1,
+   "dp": 2,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.2327,
+      "cell_s": 25.6,
+      "peak_GB": 38.6,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c13"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.3271,
+      "cell_s": 27.1,
+      "peak_GB": 41.1,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c14"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.5294,
+      "cell_s": 30.4,
+      "peak_GB": 46.0,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c15"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.9205,
+      "cell_s": 36.6,
+      "peak_GB": 55.9,
+      "persist_GB": 36.1,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c16"
+    }
+   ],
+   "skipped": [],
+   "est_s": 179.7,
+   "group": "g04_8b_tp4dp2"
+  },
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp2dp2",
+   "tp": 2,
+   "pp": 1,
+   "dp": 2,
+   "dist_opt": true,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.3324,
+      "cell_s": 27.2,
+      "peak_GB": 51.8,
+      "persist_GB": 48.2,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c17"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.4998,
+      "cell_s": 29.9,
+      "peak_GB": 55.4,
+      "persist_GB": 48.2,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c18"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.8614,
+      "cell_s": 35.7,
+      "peak_GB": 62.6,
+      "persist_GB": 48.2,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c19"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.5577,
+      "cell_s": 46.8,
+      "peak_GB": 77.1,
+      "persist_GB": 48.2,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c20"
+    }
+   ],
+   "skipped": [],
+   "est_s": 199.6,
+   "group": "g05_8b_tp2dp2"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp4",
+   "tp": 4,
+   "pp": 1,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-2-13B.json",
+   "config_sha256": "2d20d705065c31956f11f582a8a5ead1ef6055bb47772503d1da0ddda5d22533",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.2879,
+      "cell_s": 27.6,
+      "peak_GB": 62.0,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c21"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.44,
+      "cell_s": 30.0,
+      "peak_GB": 65.5,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c22"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.765,
+      "cell_s": 35.2,
+      "peak_GB": 72.3,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c23"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.3941,
+      "cell_s": 45.3,
+      "peak_GB": 86.1,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "oom-likely"
+     },
+     "cell": "c24"
+    }
+   ],
+   "skipped": [],
+   "est_s": 222.8,
+   "group": "g06_13b_tp4"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp4dp2",
+   "tp": 4,
+   "pp": 1,
+   "dp": 2,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "config": "configs/Llama-2-13B.json",
+   "config_sha256": "2d20d705065c31956f11f582a8a5ead1ef6055bb47772503d1da0ddda5d22533",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.3747,
+      "cell_s": 29.0,
+      "peak_GB": 62.0,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c25"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.5268,
+      "cell_s": 31.4,
+      "peak_GB": 65.5,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c26"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.8518,
+      "cell_s": 36.6,
+      "peak_GB": 72.3,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c27"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.481,
+      "cell_s": 46.7,
+      "peak_GB": 86.1,
+      "persist_GB": 58.6,
+      "kernels_per_step": 3785,
+      "memory": "oom-likely"
+     },
+     "cell": "c28"
+    }
+   ],
+   "skipped": [],
+   "est_s": 227.0,
+   "group": "g07_13b_tp4dp2"
+  },
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp2",
+   "tp": 2,
+   "pp": 1,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.3329,
+      "cell_s": 27.2,
+      "peak_GB": 75.9,
+      "persist_GB": 72.3,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c29"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.5003,
+      "cell_s": 29.9,
+      "peak_GB": 79.5,
+      "persist_GB": 72.3,
+      "kernels_per_step": 3028,
+      "memory": "fits"
+     },
+     "cell": "c30"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 0.8618,
+      "cell_s": 35.7,
+      "peak_GB": 86.7,
+      "persist_GB": 72.3,
+      "kernels_per_step": 3028,
+      "memory": "oom-likely"
+     },
+     "cell": "c31"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.5581,
+      "cell_s": 46.8,
+      "peak_GB": 101.2,
+      "persist_GB": 72.3,
+      "kernels_per_step": 3028,
+      "memory": "oom-likely"
+     },
+     "cell": "c32"
+    }
+   ],
+   "skipped": [],
+   "est_s": 257.1,
+   "group": "g08_8b_tp2"
+  },
+  {
+   "model": "Llama-3.1-8B",
+   "layout": "tp2pp2",
+   "tp": 2,
+   "pp": 2,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 4,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-3.1-8B.json",
+   "config_sha256": "bc4e2aa52f3cd6cd53baca35e03c6db678583f126530177873c69d02d2b06694",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.5089,
+      "cell_s": 34.4,
+      "peak_GB": 39.1,
+      "persist_GB": 36.1,
+      "kernels_per_step": 6056,
+      "memory": "fits"
+     },
+     "cell": "c33"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.9274,
+      "cell_s": 41.1,
+      "peak_GB": 42.0,
+      "persist_GB": 36.1,
+      "kernels_per_step": 6056,
+      "memory": "fits"
+     },
+     "cell": "c34"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.8312,
+      "cell_s": 55.6,
+      "peak_GB": 47.9,
+      "persist_GB": 36.1,
+      "kernels_per_step": 6056,
+      "memory": "fits"
+     },
+     "cell": "c35"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 3.572,
+      "cell_s": 84.1,
+      "peak_GB": 59.8,
+      "persist_GB": 36.1,
+      "kernels_per_step": 6056,
+      "memory": "fits"
+     },
+     "cell": "c36"
+    }
+   ],
+   "skipped": [],
+   "est_s": 275.2,
+   "group": "g09_8b_tp2pp2"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2pp2",
+   "tp": 2,
+   "pp": 2,
+   "dp": 1,
+   "dist_opt": false,
+   "microbatches": 4,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-2-13B.json",
+   "config_sha256": "2d20d705065c31956f11f582a8a5ead1ef6055bb47772503d1da0ddda5d22533",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.8194,
+      "cell_s": 41.6,
+      "peak_GB": 63.2,
+      "persist_GB": 58.6,
+      "kernels_per_step": 7570,
+      "memory": "fits"
+     },
+     "cell": "c37"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 1.4958,
+      "cell_s": 52.4,
+      "peak_GB": 67.8,
+      "persist_GB": 58.6,
+      "kernels_per_step": 7570,
+      "memory": "fits"
+     },
+     "cell": "c38"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 2.9531,
+      "cell_s": 75.7,
+      "peak_GB": 77.0,
+      "persist_GB": 58.6,
+      "kernels_per_step": 7570,
+      "memory": "fits"
+     },
+     "cell": "c39"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 5.7632,
+      "cell_s": 128.0,
+      "peak_GB": 95.5,
+      "persist_GB": 58.6,
+      "kernels_per_step": 7570,
+      "memory": "oom-likely"
+     },
+     "cell": "c40"
+    }
+   ],
+   "skipped": [],
+   "est_s": 299.7,
+   "group": "g10_13b_tp2pp2"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2dp2",
+   "tp": 2,
+   "pp": 1,
+   "dp": 2,
+   "dist_opt": true,
+   "microbatches": 1,
+   "gpus": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "config": "configs/Llama-2-13B.json",
+   "config_sha256": "2d20d705065c31956f11f582a8a5ead1ef6055bb47772503d1da0ddda5d22533",
+   "cells": [
+    {
+     "mb": 1,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.5366,
+      "cell_s": 31.6,
+      "peak_GB": 82.9,
+      "persist_GB": 78.1,
+      "kernels_per_step": 3785,
+      "memory": "fits"
+     },
+     "cell": "c41"
+    },
+    {
+     "mb": 2,
+     "seq": 1024,
+     "estimate": {
+      "step_s": 0.8071,
+      "cell_s": 35.9,
+      "peak_GB": 87.7,
+      "persist_GB": 78.1,
+      "kernels_per_step": 3785,
+      "memory": "oom-likely"
+     },
+     "cell": "c42"
+    },
+    {
+     "mb": 1,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 1.3901,
+      "cell_s": 45.2,
+      "peak_GB": 97.2,
+      "persist_GB": 78.1,
+      "kernels_per_step": 3785,
+      "memory": "oom-likely"
+     },
+     "cell": "c43"
+    },
+    {
+     "mb": 2,
+     "seq": 4096,
+     "estimate": {
+      "step_s": 2.5141,
+      "cell_s": 63.2,
+      "peak_GB": 116.3,
+      "persist_GB": 78.1,
+      "kernels_per_step": 3785,
+      "memory": "oom-likely"
+     },
+     "cell": "c44"
+    }
+   ],
+   "skipped": [],
+   "est_s": 301.6,
+   "group": "g11_13b_tp2dp2"
+  }
+ ],
+ "skipped": [
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2",
+   "mb": 1,
+   "seq": 1024,
+   "step_s": 0.5374,
+   "cell_s": 31.6,
+   "peak_GB": 121.9,
+   "persist_GB": 117.1,
+   "kernels_per_step": 3785,
+   "memory": "exceeds-hbm"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2",
+   "mb": 2,
+   "seq": 1024,
+   "step_s": 0.8079,
+   "cell_s": 35.9,
+   "peak_GB": 126.7,
+   "persist_GB": 117.1,
+   "kernels_per_step": 3785,
+   "memory": "exceeds-hbm"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2",
+   "mb": 1,
+   "seq": 4096,
+   "step_s": 1.3909,
+   "cell_s": 45.2,
+   "peak_GB": 136.3,
+   "persist_GB": 117.1,
+   "kernels_per_step": 3785,
+   "memory": "exceeds-hbm"
+  },
+  {
+   "model": "Llama-2-13B",
+   "layout": "tp2",
+   "mb": 2,
+   "seq": 4096,
+   "step_s": 2.5149,
+   "cell_s": 63.2,
+   "peak_GB": 155.4,
+   "persist_GB": 117.1,
+   "kernels_per_step": 3785,
+   "memory": "exceeds-hbm"
+  }
+ ]
+}

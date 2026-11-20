@@ -1,0 +1,5 @@
+sku: A100-SXM4-80GB
+clock_hz: 1410000000.0
+gpus: 8
+literature_tier: energylens
+base: study

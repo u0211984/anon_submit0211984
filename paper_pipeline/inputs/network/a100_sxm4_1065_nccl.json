@@ -1,0 +1,3170 @@
+{
+  "schema_version": 1,
+  "status": "blocked",
+  "timing_basis": "cuda_event_interval",
+  "blocking_reason": "Kernel-union use remains blocked: CUDA event intervals do not identify kernel-union time; no sweep kernel timeline. TP8 per-sample clocks remain unverified; event-proxy inclusion is approved under the session clock lock described below.",
+  "event_proxy_policy": {
+    "timing_basis": "cuda_event_large_message_proxy",
+    "minimum_bytes": 1048576,
+    "include_clock_unverified_default": true,
+    "clock_qualification": "Confirmation: the card was locked at 1065 MHz for the whole session, but the sampler failed to confirm every sample. TP8 points are included by default on that basis; their per-point clock_verified flags are unchanged. Verified-only results are retained as a sensitivity.",
+    "energy_accounting": "Duration only; communication energy retains baseline physical operation_links bytes and the configured baseline rule."
+  },
+  "provenance": {
+    "launch_id": "101fedb9761f41c8b9f0486767b856a8",
+    "instance_id": "4bc2cb6d-9dcd-4022-b307-0da9e3ac2208",
+    "date": "",
+    "hardware": "8 x NVIDIA A100-SXM4-80GB, NVSwitch",
+    "target_sm_clock_MHz": 1065,
+    "nccl_version": "2.27.3",
+    "sources": {
+      "torch_nccl": {
+        "path": "results/session/stages/torch_nccl/comparison.csv",
+        "sha256": "498f8fadefcd637bcfdc6d2163cc181c673a6f0b795541387c7fbefe6950db90",
+        "rows": 156
+      },
+      "custom": {
+        "path": "results/session/stages/custom/comparison.csv",
+        "sha256": "c6e67b847b32ffcf516d38c522021ced34e445e84629975e548f8723ef4c8bbe",
+        "rows": 156
+      }
+    },
+    "timing_source": "results/session/stages/setup/payload/custom_ar_sweep.py:40-63",
+    "aggregation_source": "results/session/stages/setup/payload/stage.py:150-160",
+    "aggregation": "maximum of rank-local means over 20 CUDA-event intervals, after 5 warmups",
+    "excluded_from_model_input": [
+      "mg32 validation cells",
+      "capture/ algorithm logs",
+      "mgpu_kernel_join kernel durations"
+    ]
+  },
+  "interpolation_contract": {
+    "method": "piecewise linear log(bytes)-log(kernel_seconds), per path/TP/dtype",
+    "ends": "clamp to measured kernel endpoints; no added launch or invented floor",
+    "clock_policy": "verified only by default; explicit include_unverified sensitivity",
+    "note": "Contract for future kernel data; not applied to event_interval_points."
+  },
+  "points": [],
+  "event_interval_points": [
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.550400063395499e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.200639985501765e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.021439999341965e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.108479954302311e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.149439968168735e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.519680052995682e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.381440043449402e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.2124799862504e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00019937279969453812
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.828480042517186e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.8284802287817e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.864320166409016e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.487359970808029e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.043520115315914e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.627200052142144e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.09312006086111e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.25183992832899e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010516480021178723
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011991039924323558
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011868160031735897
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012702720202505588
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00017797120064496993
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0003005952000617981
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00045783039927482604
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0008723967999219894
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0016772608041763306
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.000959917902947e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011048960089683532
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.797760106623173e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.064000084996223e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.038400076329708e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.053760081529617e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.197120130062103e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.017920143902302e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001168895985931158
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.929279781877994e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.924159817397595e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.847359940409661e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.936000153422355e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.190399944782258e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.982080206274985e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.895040176808834e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.371200002729892e-05
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010147840119898318
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010659840069711209
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001072127990424633
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012072960026562214
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00033003519549965857
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002719743952155113
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00045977599918842313
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0008742400020360947
+    },
+    {
+      "path": "nccl",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0016800256073474884
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011156480014324188
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012503039911389353
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010045440010726451
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011335679963231086
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001426432017236948
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00030704640261828897
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00018283520117402078
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00019978239759802817
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00019000320024788382
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00021340160071849822
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002179071966558695
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00017771519981324673
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001775103986263275
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00017756160087883472
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00027269119545817377
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00014935039952397347
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001170943982899189
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.000115302399918437
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001193984005600214
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012195839919149876
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00019041279777884485
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002345983974635601
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00036106240153312684
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0006381568044424058
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0011699711978435516
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0022376959919929505
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010347519926726818
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011069439984858036
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012456960044801235
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00012277759984135627
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001154559999704361
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010506239980459213
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00010920959934592248
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011622399985790252
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011151360012590886
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00019686399661004544
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011893759928643703
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002416127994656563
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00014960639737546445
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002420736014842987
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00023628800064325333
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002491391986608505
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00023930880054831504
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002009600006043911
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00017535999938845634
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0001915391981601715
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0002037760004401207
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00023961599916219711
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0003568640023469925
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.000642508801817894
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.001174476820230484
+    },
+    {
+      "path": "nccl",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.0022487552046775816
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00014848000034689904
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00013501440100371835
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001328128006309271
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001394688006490469
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00035630079098045826
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00013900800086557867
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001361407995223999
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001391615990549326
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.000130867201089859
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00024698879569768907
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00012564480118453503
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011883519887924194
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011996159963309765
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00023383039720356464
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00022594559602439403
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001262080006301403
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00013557759970426558
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011924480050802231
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00015646719969809056
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001278463989496231
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00022497279942035675
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00031948799788951876
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0004850176006555557
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0007268863946199418
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.001361919993162155
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.002532966411113739
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011924480013549327
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017735679894685747
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00016798719987273216
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00018083840012550354
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017955839931964874
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017971199974417686
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001789439994841814
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017402879744768144
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017208319976925852
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0002017791960388422
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017873919904232025
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017858560085296632
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017986559867858885
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00017039359956979753
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00018411519974470138
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00027443199679255486
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00016209920048713684
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00016619520075619222
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00018360320106148719
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00018124799728393555
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00018652160018682479
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0002991103947162628
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0004608000010251999
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0007332863986492157
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0013793792128562927
+    },
+    {
+      "path": "nccl",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.002528614401817322
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 9.011199958622455e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.140480007976293e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.157440010458231e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.664320033043623e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.736000001430511e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.3622399866580965e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.638719987124205e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.874240010976792e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.556800033897161e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.6899199858307834e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.961280059069395e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.9356800317764276e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.6028799936175345e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.8947200365364556e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.8793600313365456e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.7359999641776086e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.853760031983256e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.874240010976792e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.130240004509687e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.372479990124702e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.0979199968278407e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.512640062719583e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.0467199236154554e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.70207992196083e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.898240003734827e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.507520079612732e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.575679950416088e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.347199991345405e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.362559996545315e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.833600044250488e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.598079964518548e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.99232006072998e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 8.509440086781978e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.285759933292865e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.219200041145086e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.280640006065368e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.995520045980811e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.8844800144433975e-05
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 2,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 0.00011202560141682624
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.437440071254969e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.580800026655197e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.959680005908012e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.5193600989878175e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.283839963376522e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.135360006242991e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.109760016202927e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.3708800300955776e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.114879999309778e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.3452799655497075e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.416960045695305e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.3452799841761585e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.478399991989136e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.1455999910831456e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.222400054335594e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.0672000236809254e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.6012800894677636e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.408640012145043e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.386239979416132e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.130240023136138e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.14047997072339e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.130239948630333e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.222399961203337e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.263359993696213e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.2787200175225735e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.667839981615543e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.099519975483417e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.437440071254969e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.0380800105631355e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.4067200422286985e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.468160063028336e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.140480026602745e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.094400066882372e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 4.9459199607372286e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 5.263359993696213e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 6.133760139346123e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": 7.823360003530979e-05
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 4,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": true,
+      "clock_status": "verified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00012154880054295062
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 5.642240066081285e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 8.678399920463562e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 8.657920025289059e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 8.888320066034794e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 9.057280160486698e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 9.472000002861023e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 8.601600043475629e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 8.453120179474353e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001006591983139515
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 9.733119942247867e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001031679980456829
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 9.390080086886883e-05
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010173439942300319
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010193919837474823
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001003519993275404
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00013378559853881596
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011294720061123371
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00012236800119280815
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "bfloat16",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010926080048084259
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 32,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011893759928643703
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 64,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011115520112216473
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 128,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010547200068831445
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 256,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010895360000431538
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 512,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010542080029845238
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 1024,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011095040030777455
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 2048,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011018239967525005
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 4096,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010905600003898144
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8192,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010798080004751682
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16384,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011238400116562844
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 32768,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.0001096704002469778
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 65536,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00010562559999525547
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 131072,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011089920029044151
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 262144,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011550720073282719
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 524288,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011555840149521828
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 1048576,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00012185599915683269
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 2097152,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00011699199862778187
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 4194304,
+      "status": "ok",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": 0.00012062720209360122
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 8388608,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 16777216,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 33554432,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 67108864,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 134217728,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    },
+    {
+      "path": "custom",
+      "tp": 8,
+      "dtype": "float32",
+      "bytes": 268435456,
+      "status": "ineligible",
+      "clock_verified": false,
+      "clock_status": "unverified",
+      "event_interval_seconds": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv
+.native/
+astra_cache/
+output/
+tmp/
+*.et
+paper_pipeline/out/
+reproduce/out/
+data/**/cap/
+astra-sim/build/astra_analytical/build/
+astra-sim/extern/graph_frontend/chakra/schema/protobuf/et_def.pb.cc
+astra-sim/extern/graph_frontend/chakra/schema/protobuf/et_def.pb.h

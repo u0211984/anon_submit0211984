@@ -1,0 +1,507 @@
+architectures:
+  SmolLM2-135M:
+    hf_config: paper_pipeline/inputs/hf_configs/HuggingFaceTB_SmolLM2-135M.json
+    sha256: 1d556eab73b69c7f
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  SmolLM2-360M:
+    hf_config: paper_pipeline/inputs/hf_configs/HuggingFaceTB_SmolLM2-360M.json
+    sha256: 34f7801487078de7
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  SmolLM2-1.7B:
+    hf_config: paper_pipeline/inputs/hf_configs/HuggingFaceTB_SmolLM2-1.7B.json
+    sha256: 33397f6af8090f72
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3.2-1B:
+    hf_config: paper_pipeline/inputs/hf_configs/unsloth_Llama-3.2-1B.json
+    sha256: 8f028e2cd88148fa
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3.2-3B:
+    hf_config: paper_pipeline/inputs/hf_configs/unsloth_Llama-3.2-3B.json
+    sha256: c0a6833b9da6e99a
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3.1-8B:
+    hf_config: paper_pipeline/inputs/hf_configs/unsloth_Meta-Llama-3.1-8B.json
+    sha256: 0ea2186ccf686654
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-2-13B:
+    hf_config: paper_pipeline/inputs/hf_configs/NousResearch_Llama-2-13b-hf.json
+    sha256: 1097c7b0a34a1521
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-2-7B:
+    hf_config: paper_pipeline/inputs/hf_configs/NousResearch_Llama-2-7b-hf.json
+    sha256: 3c66a81e29ce617a
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3-8B:
+    hf_config: paper_pipeline/inputs/hf_configs/NousResearch_Meta-Llama-3-8B.json
+    sha256: 2430cee764b6530f
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3-70B:
+    hf_config: paper_pipeline/inputs/hf_configs/NousResearch_Meta-Llama-3-70B.json
+    sha256: c3e3c787cf77a9c6
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Llama-3.1-70B:
+    hf_config: paper_pipeline/inputs/hf_configs/unsloth_Meta-Llama-3.1-70B.json
+    sha256: eb24f00e437ef9e6
+    hf_architecture: LlamaForCausalLM
+    family: llama
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: false
+    moe: false
+  Qwen1.5-7B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen1.5-7B.json
+    sha256: 7c6ddc07c85a6970
+    hf_architecture: Qwen2ForCausalLM
+    family: qwen2
+    projection_bias: {q: true, k: true, v: true, o: false}
+    qk_norm: false
+    moe: false
+  Qwen2.5-0.5B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen2.5-0.5B.json
+    sha256: 479dcf0c5286339e
+    hf_architecture: Qwen2ForCausalLM
+    family: qwen2
+    projection_bias: {q: true, k: true, v: true, o: false}
+    qk_norm: false
+    moe: false
+  Qwen2.5-1.5B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen2.5-1.5B.json
+    sha256: 0e8c8aa86468aba0
+    hf_architecture: Qwen2ForCausalLM
+    family: qwen2
+    projection_bias: {q: true, k: true, v: true, o: false}
+    qk_norm: false
+    moe: false
+  Qwen2.5-7B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen2.5-7B.json
+    sha256: 267ce68584c5f24c
+    hf_architecture: Qwen2ForCausalLM
+    family: qwen2
+    projection_bias: {q: true, k: true, v: true, o: false}
+    qk_norm: false
+    moe: false
+  Qwen2.5-72B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen2.5-72B.json
+    sha256: d9113a671ad92740
+    hf_architecture: Qwen2ForCausalLM
+    family: qwen2
+    projection_bias: {q: true, k: true, v: true, o: false}
+    qk_norm: false
+    moe: false
+  Qwen3-1.7B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen3-1.7B.json
+    sha256: 1ddb5b89ebc90dcb
+    hf_architecture: Qwen3ForCausalLM
+    family: qwen3
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: true
+    moe: false
+  Qwen3-30B-A3B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen3-30B-A3B.json
+    sha256: 2850ddb3bf7aecad
+    hf_architecture: Qwen3MoeForCausalLM
+    family: qwen3_moe
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: true
+    moe: true
+  Qwen3-235B-A22B:
+    hf_config: paper_pipeline/inputs/hf_configs/Qwen_Qwen3-235B-A22B.json
+    sha256: 0ecd5d6fe6f2db67
+    hf_architecture: Qwen3MoeForCausalLM
+    family: qwen3_moe
+    projection_bias: {q: false, k: false, v: false, o: false}
+    qk_norm: true
+    moe: true
+model_aliases: {qwen15_7b_base: Qwen1.5-7B, qwen25_7b_base: Qwen2.5-7B, llama2_7b: Llama-2-7B, llama2_13b: Llama-2-13B, llama3_8b: Llama-3-8B,
+  llama32_1b: Llama-3.2-1B, llama32_3b: Llama-3.2-3B, qwen25_72b: Qwen2.5-72B, Llama3-8B: Llama-3-8B, Llama3-70B: Llama-3-70B,
+  qwen3_1p7b: Qwen3-1.7B}
+scope:
+- kind: exclude_models
+  models: [SmolLM2-135M]
+  designation: SCOPE_135M
+  reason: SmolLM2-135M is excluded from every validation entry
+- kind: exclude_prefill_prompt_tokens
+  tokens: [64]
+  designation: SCOPE_64
+  reason: 64-token prefill cells are excluded from every validation entry; 128-token prefill stays in
+- kind: omit_entry_sets_phases
+  entries: [counts_fullstep]
+  sets: [pytorch_v1, pytorch_v2]
+  phases: [prefill, decode]
+  designation: SCOPE_VLLM_INFERENCE
+  reason: Inference validation uses vLLM only; PyTorch captures are retained for training
+network_allreduce_curve:
+  box: {sku: A100-SXM4-80GB, gpus: 8, interconnect: nvswitch, sm_clock_mhz: 1065}
+  designation: NCCL_CURVE_SCOPE
+variants:
+- id: collective_buffers
+  applies_to: multi_gpu
+  switch: hardware.l2_model.collective_buffers
+  alternatives: {occupy_l2: occupy_l2, leave_l2: leave_l2}
+- id: link_energy_rule
+  applies_to: [multi_gpu32_locked1065, megatron_multi_a100]
+  switch: network.link_energy_rule
+  alternatives: {per_payload_byte: per_payload_byte}
+- id: nccl_latency_rule
+  applies_to: [multi_gpu32_locked1065, megatron_multi_a100]
+  switch: network.nccl_latency_rule
+  alternatives: {tuning_formula: tuning_formula}
+- id: flash_rebuild
+  applies_to: [multi_gpu32_locked1065]
+  switch: model.implementation.kernel_rules.flash_rebuild
+  alternatives: {enabled: true}
+- id: h100_templates
+  applies_to: [counts_h100_fullstep]
+  switch: model.implementation.gemm_library.forced_templates
+  alternatives: {S3: null, LT-HEUR reference: opmodel/src/opmodel/configs/gemm_catalogs/sm90_evidence/lt_heur_forced_h100.csv}
+paths: {EG: data, model_configs: data/workload_set/configs}
+entries:
+- id: counts_fullstep
+  figure: counts
+  title: '(a) Whole-step counts: HBM, L2 (delivered bytes), SMEM bytes and tensor FLOPs per step'
+  status: admitted
+  hardware: a100_pcie80_1065
+  framework: {prefill: vllm-0.10.2-v0, decode: vllm-0.10.2-v0, train: hf-5.2-torch-2.10, pytorch_inference: hf-5.2-torch-2.10}
+  measured:
+  - {set: pytorch_v1, manifest: '{EG}/workload_set/counts_fullstep/MANIFEST.csv'}
+  - {set: vllm_v1, manifest: '{EG}/workload_set/counts_fullstep_vllm/MANIFEST.csv'}
+  - {set: vllm_v2, manifest: '{EG}/workload_set/counts_fullstep_vllm_v2/MANIFEST.csv'}
+  - set: vllm_qwen_v2
+    manifest: '{EG}/workload_set/counts_fullstep_vllm_qwen/MANIFEST.csv'
+    pending_runs:
+    - {model: Qwen3-30B-A3B, phase: prefill, batch: 1, seq_len: 1024, predict: true}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 1, seq_len: 1024, predict: true}
+    - {model: Qwen3-30B-A3B, phase: prefill, batch: 1, seq_len: 1024, predict: true, variant: vllm_default_tile, moe_tile_rule: vllm_default_config}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 1, seq_len: 1024, predict: true, variant: vllm_default_tile, moe_tile_rule: vllm_default_config}
+    - {model: Qwen3-30B-A3B, phase: prefill, batch: 4, seq_len: 1024, predict: true}
+    - {model: Qwen3-30B-A3B, phase: prefill, batch: 4, seq_len: 1024, predict: true, variant: vllm_default_tile, moe_tile_rule: vllm_default_config}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 16, seq_len: 1024, predict: true}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 16, seq_len: 1024, predict: true, variant: vllm_default_tile, moe_tile_rule: vllm_default_config}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 64, seq_len: 1024, predict: true}
+    - {model: Qwen3-30B-A3B, phase: decode, batch: 64, seq_len: 1024, predict: true, variant: vllm_default_tile, moe_tile_rule: vllm_default_config}
+  - set: pytorch_v2
+    manifest: '{EG}/workload_set/counts_fullstep_v2/MANIFEST.csv'
+    scored_statuses: [scored, scored (Qwen2 q/k/v bias; fullstep2_qwen_nockpt.py)]
+  workload:
+    model_configs: '{model_configs}'
+    batch: 1
+    seq_len: 1024
+    rule: run_one_tree.model_yaml
+    rules:
+      implementation:
+        pytorch: {kind: eager, framework: hf-5.2-torch-2.10}
+        vllm: {kind: fused, framework: vllm-0.10.2-v0}
+      decode_kv_tokens_on_entry: {vllm: 1025, pytorch: 1024}
+      training_hardware: 'no-recompute base, except grad_ckpt (Llama-3.2-3B checkpointed): full-recompute base'
+      prefill_logits_last_token: true
+      capture_set: v2 where it exists (delivered L2), else v1
+      moe: {moe_tile_rule: rapid_grouped, routing_policy: multinomial_expected, grouped_traffic: opmodel_tile, replay_steps: 3}
+  harness: {count_definitions: paper_pipeline/harness/count_definitions.py, hopper_join: paper_pipeline/harness/hopper_join.py,
+    run_one: paper_pipeline/harness/counts_run_one.py, join: paper_pipeline/harness/join.py, join_vllm: paper_pipeline/harness/join_vllm.py,
+    make_figure_csv: paper_pipeline/harness/make_figure_csv.py}
+  scorer: counts_join
+  outputs: [figure_counts.csv, counts_validation.pdf]
+  exceptions: []
+- id: counts_h100_fullstep
+  figure: counts
+  title: H100 PCIe whole-step counts
+  status: admitted
+  hardware: h100_pcie_80gb_counts
+  framework: {prefill: vllm-0.10.2-v0, decode: vllm-0.10.2-v0, train: hf-5.2-torch-2.10, pytorch_inference: hf-5.2-torch-2.10}
+  measured:
+  - {set: vllm_v2, manifest: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/vllm_v2/MANIFEST.csv',
+    provenance: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/vllm_v2/PROVENANCE.json'}
+  - {set: vllm_qwen_v2, manifest: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/vllm_qwen_v2/MANIFEST.csv',
+    provenance: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/vllm_qwen_v2/PROVENANCE.json'}
+  - {set: pytorch_v2, manifest: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/pytorch_v2/MANIFEST.csv',
+    provenance: '{EG}/distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/pytorch_v2/PROVENANCE.json'}
+  workload:
+    model_configs: '{model_configs}'
+    batch: 1
+    seq_len: 1024
+    rule: run_one_tree.model_yaml
+    rules:
+      implementation:
+        pytorch: {kind: eager, framework: hf-5.2-torch-2.10}
+        vllm:
+          kind: fused
+          framework: vllm-0.10.2-v0
+          engine: {cuda_graph: false}
+      decode_kv_tokens_on_entry: {vllm: 1025, pytorch: 1024}
+      training_hardware: 'no-recompute base, except grad_ckpt (Llama-3.2-3B checkpointed): full-recompute base'
+      prefill_logits_last_token: true
+      capture_set: v2 where it exists (delivered L2), else v1
+      moe: {moe_tile_rule: rapid_grouped, routing_policy: multinomial_expected, grouped_traffic: opmodel_tile, replay_steps: 3}
+      sw_param: {kernel_launch_mode: stream}
+  harness: {count_definitions: paper_pipeline/harness/count_definitions.py, hopper_join: paper_pipeline/harness/hopper_join.py,
+    run_one: paper_pipeline/harness/counts_run_one.py, join: paper_pipeline/harness/join.py, join_vllm: paper_pipeline/harness/join_vllm.py,
+    make_figure_csv: paper_pipeline/harness/make_figure_csv.py}
+  scorer: counts_join
+  outputs: [figure_counts.csv, counts_validation.pdf]
+  exceptions: []
+- id: bare_step96
+  figure: energy_validation
+  title: 'Bare-step energy: 95 certified cells + 12 Qwen2.5-1.5B vLLM cells, 1065 MHz A100 PCIe 80GB'
+  status: admitted
+  hardware: a100_pcie80_1065
+  framework: {prefill: vllm-0.10.2-v0, decode: vllm-0.10.2-v0, train: hf-5.2-torch-2.10}
+  measured:
+  - set: runs
+    csv: '{EG}/workload_set/energy_bare_step/grid/runs_final.csv'
+    expect_rows: 95
+    filter: {status: ok}
+  - set: runs_q25inf
+    csv: '{EG}/workload_set/energy_bare_step_q25inf/grid_qwen25_1p5b_infer/runs_pipeline.csv'
+    expect_rows: 12
+    filter: {status: ok}
+  workload:
+    model_configs: '{model_configs}'
+    columns: {cell: idx, model: model, phase: phase, batch: batch, seq_len: seq_len, kv_entry: kv_entry, max_model_len: max_model_len,
+      grad_ckpt: grad_ckpt, steps: steps, runtime_s: runtime_s, energy_J: energy_J, busy_fraction: busy_fraction, gpu_kernel_ms_per_step: gpu_kernel_ms_per_step,
+      wall_ms_per_step: wall_ms_per_step, gpus: gpus, config_sha256: config_sha256}
+    measured_per_step: {steps: steps, runtime: runtime_s, energy: energy_J}
+    gpu_work_idle_power: {path: paper_pipeline/inputs/idle_power/bare_step96.json, mode: fixed, power_W: 51.36, source: paper_pipeline/inputs/idle_power/bare_step96.json}
+    hardware_overlay:
+      sw_param: {inference_step_overhead: 0, inference_prefill_overhead: 0}
+    rules: {decode_context: fixed_seq, decode_kv_column: kv_entry, qwen_config_source: published, engine_max_model_len_column: max_model_len,
+      inference_precision: bf16, prefill: one replayed forward = batch requests x seq_len prompt tokens, training: 'batch
+        x seq_len, full recompute only when grad_ckpt=1, HF bf16 autocast and fp32 parameters/grads/AdamW', host_gap: zero,
+      busy_fraction: reported}
+  harness: {predict: paper_pipeline/predict_energy.py, timeout_s: 7200}
+  scorer: energy_ratio
+  outputs: [energy_bare96.csv]
+  exceptions: []
+  assumptions: ['95 certified cells, status ok only, runtime_s / steps and energy_J / steps as measured', '12 Qwen2.5-1.5B
+      vLLM cells (ids 96-107; batches 1, 2, 4 x prefill 1024/4096, decode 1K/4K) from the sidecar grid, same kit and protocol,
+      certified PASS', 'GPU_WORK_ONLY: paper time is measured kernel union; paper energy subtracts wall-minus-kernel
+      gap times measured idle power; wall time and raw energy are secondary', Idle power was measured at locked 1065 MHz without
+      a CUDA context and is a lower bound on gap power; busy_fraction is reported without rescaling, 'bare_step96 reads inputs/idle_power/bare_step96.json:
+      51.36 W from NVML energy over 30.003 s on our single A100 PCIe 80GB; 51.342 W sampled mean is secondary', 'Decode is
+      one forward at the row''s fixed kv_entry, with the row''s engine max_model_len']
+- id: megatron_single_a100
+  figure: energy_validation
+  title: 'Megatron-Core 0.12.1 + TE 2.2.0: 20 measured training cells, single A100 PCIe 80GB, 1065 MHz'
+  status: admitted
+  hardware: a100_pcie80_1065
+  framework: {train: megatron-core-0.12.1}
+  measured:
+  - set: runs
+    csv: paper_pipeline/inputs/megatron_single_a100/runs.csv
+    expect_rows: 20
+    filter: {status: ok}
+  workload:
+    model_configs: '{EG}/workload_set/megatron/configs'
+    columns: {cell: idx, model: model, phase: phase, batch: batch, seq_len: seq_len, grad_ckpt: grad_ckpt, steps: steps, runtime_s: runtime_s,
+      energy_J: energy_J, busy_fraction: busy_fraction, gpu_kernel_ms_per_step: gpu_kernel_ms_per_step, wall_ms_per_step: wall_ms_per_step,
+      gpus: gpus, config_sha256: config_sha256}
+    measured_per_step: {steps: steps, runtime: runtime_s, energy: energy_J}
+    gpu_work_idle_power: {path: paper_pipeline/inputs/idle_power/megatron_single_a100.json, mode: per_cell}
+    hardware_overlay:
+      sw_param:
+        inference_step_overhead: 0
+        inference_prefill_overhead: 0
+        precision: {tensor_format: bf16, kv_cache: bf16, parameters: bf16, master_parameters: fp32, gradients: fp32, grad_communication: fp32,
+          optimizer_states: fp32, stats: fp32}
+    rules:
+      qwen_config_source: published
+      implementation:
+        options: {fuse_rope: false}
+      training: batch x seq_len, no recomputation; bf16 parameters and fp32 master/grad/Adam states
+      host_gap: zero
+      busy_fraction: reported
+    input_pins: ['{EG}/workload_set/megatron/runs_grid_cells/c72/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c73/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c74/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c75/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c76/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c77/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c78/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c79/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c80/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c82/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c84/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c85/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c86/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c87/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c88/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c90/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c91/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c92/runs.csv',
+      '{EG}/workload_set/megatron/runs_grid_cells/c93/runs.csv', '{EG}/workload_set/megatron/runs_grid_cells/c94/runs.csv']
+  harness: {predict: paper_pipeline/predict_energy.py, timeout_s: 7200}
+  scorer: energy_ratio
+  outputs: [energy_megatron_single_a100.csv]
+  exceptions: []
+  assumptions: ['20 status-ok cells from runs_grid_cells; 81, 83, 89, 95 are OOM and not scored', 'GPU-work basis: time is
+      measured kernel union; energy is measured raw minus signed wall-minus-kernel gap times this cell''s measured idle watts',
+    The same per-cell idle baseline prices prediction static energy; each baseline was measured at 1065 MHz without a CUDA
+      context, '51.36 W is a recorded sensitivity for both measured gap correction and predicted static energy, not the primary
+      baseline', Source-backed preset; single-GPU kernel-trace timing; five harness loss-mean launches and three batch>1 label/loss
+      transposes remain undescribed]
+- id: multi_gpu32_locked1065
+  figure: energy_validation
+  title: 32 locked-clock multi-GPU bare-step vLLM runs (1065 MHz; TP2/4/8; 8x A100 SXM4 80GB)
+  status: admitted
+  hardware: a100_sxm4_80gb_400w
+  framework: {prefill: vllm-0.10.2-v0, decode: vllm-0.10.2-v0}
+  measured:
+  - set: runs
+    csv: '{EG}/distributed_runs/runs_multi_a100_locked1065_redo_pipeline.csv'
+    expect_rows: 32
+    filter: {status: ok}
+  workload:
+    model_configs: '{EG}/distributed_runs/configs'
+    columns:
+      cell: [idx, tp]
+      model: model
+      phase: phase
+      batch: batch
+      seq_len: seq_len
+      tp: tp
+      parallel: tp
+      n_gpus: n_gpus
+      sm_mhz_per_gpu: sm_mhz_per_gpu
+      kv_entry: kv_entry
+      max_model_len: max_model_len
+      grad_ckpt: grad_ckpt
+      steps: steps
+      runtime_s: runtime_s
+      energy_J: energy_J
+      busy_fraction: busy_fraction
+      gpu_kernel_ms_per_step: gpu_kernel_ms_per_step
+      wall_ms_per_step: wall_ms_per_step
+      gpus: gpus
+      config_sha256: config_sha256
+    measured_per_step: {steps: steps, runtime: runtime_s, energy: energy_J}
+    gpu_work_idle_power: {path: paper_pipeline/inputs/idle_power/multi_gpu32_locked1065.json, mode: per_gpu, source: paper_pipeline/inputs/idle_power/multi_gpu32_locked1065.json}
+    hardware_overlay:
+      sw_param: {inference_step_overhead: 0, inference_prefill_overhead: 0}
+    rules: {decode_context: fixed_seq, decode_kv_column: kv_entry, qwen_config_source: published, engine_max_model_len_column: max_model_len,
+      inference_precision: bf16, prefill: one replayed forward = batch requests x seq_len prompt tokens, host_gap: zero, busy_fraction: reported,
+      clock: per_run_measured}
+  harness: {predict: paper_pipeline/predict_energy.py, timeout_s: 7200}
+  scorer: energy_ratio
+  outputs: [energy_multi_gpu32_locked1065.csv]
+  exceptions: []
+  assumptions: ['32 measured rows, status ok, fake=0, clock_verified=1; energy_J is summed over the job''s GPUs', 'GPU_WORK_ONLY:
+      paper time is measured kernel union; paper energy subtracts wall-minus-kernel gap times measured idle power; wall time
+      and raw energy are secondary', Idle power was measured at locked 1065 MHz without a CUDA context and is a lower bound
+      on gap power; busy_fraction is reported without rescaling, 'multi_gpu32_locked1065 reads inputs/idle_power/multi_gpu32_locked1065.json,
+      instance 248eaaba: locked.power_W is aligned to top-level gpus; select and sum only each job row gpus', 'Decode is one
+      forward at the row''s fixed kv_entry, with the row''s engine max_model_len', 'NVSWITCH: Switch; same collective-buffer
+      and link-energy alternatives as multi_gpu42_vllm']
+- id: energylens
+  kind: request_cases
+  loader: energylens
+  figure: energylens
+  title: 'EnergyLens comparison (TensorRT-LLM on A100 SXM4 80GB, 1410 MHz): Llama3-8B/70B, Qwen3-30B-A3B'
+  status: admitted
+  hardware: a100_sxm4_80gb_1410_study
+  framework: {inference: trtllm}
+  blocked_on: []
+  workload:
+    model_configs: paper_pipeline/inputs/energylens/configs
+    moe_model_configs: paper_pipeline/inputs/energylens_moe/model_configs
+    moe_rules:
+      framework: vllm-0.10.2-v0
+      trtllm_gemv: {rule: trtllm, max_m: 6, stream_bw: 1631200000000.0}
+      implementation:
+        options: {vllm_enable_expert_parallel: true}
+    rules:
+      sw_param: {inference_step_overhead: 0, inference_prefill_overhead: 0}
+      trtllm_gemv: {rule: trtllm, max_m: 6, stream_hbm: true}
+  harness: {predict: paper_pipeline/predict_energy.py}
+  scorer: request_energy
+  assumptions: ['F14 (stated): energy_per_request pairs with a measured reference only', F12/F13 rescaled references are labelled]
+  exceptions: []
+- id: megatron_multi_a100
+  figure: energy_validation
+  title: 'Megatron-Core 0.12.1 + TE 2.2.0 multi-GPU training: 33 measured cells (TP2/4/8, TP2xPP2, TP2xDP2, TP4xDP2), 8x A100
+    SXM4 80GB, 1065 MHz'
+  status: admitted
+  hardware: a100_sxm4_80gb_400w
+  framework: {train: megatron-core-0.12.1}
+  measured:
+  - set: runs
+    csv: '{EG}/workload_set/megatron_multi_a100/runs_megatron_multi_a100.csv'
+    expect_rows: 33
+    filter: {status: ok}
+    report_other_statuses: {expect_rows: 11, grid: '{EG}/distributed_runs/megatron_multi/grid.json', designation: MEGATRON_MULTI_SCORE}
+  workload:
+    model_configs: '{EG}/distributed_runs/megatron_multi/configs'
+    columns: {cell: cell, group: group, parallel: group, model: model, phase: phase, batch: batch, seq_len: seq_len, grad_ckpt: grad_ckpt,
+      tp: tp, pp: pp, dp: dp, dp_zero_stage: dp_zero_stage, microbatches: microbatches, global_batch: global_batch, n_gpus: n_gpus,
+      gpus: gpus, steps: steps, runtime_s: runtime_s, energy_J: energy_J, energy_J_per_gpu: energy_J_per_gpu, wall_ms_per_step: wall_ms_per_step,
+      busy_fraction: busy_fraction, sm_mhz_per_gpu: sm_mhz_per_gpu, status: status, config_sha256: config_sha256}
+    score_basis: node_raw
+    measured_per_step: {steps: steps, runtime: runtime_s, energy: energy_J, energy_per_gpu: energy_J_per_gpu, wall_ms: wall_ms_per_step}
+    gpu_work_idle_power: {path: data/workload_set/megatron_multi_a100/idle_power.json, mode: per_gpu, source: data/workload_set/megatron_multi_a100/idle_power.json}
+    hardware_overlay:
+      sw_param:
+        inference_step_overhead: 0
+        inference_prefill_overhead: 0
+        precision: {tensor_format: bf16, kv_cache: bf16, parameters: bf16, master_parameters: fp32, gradients: fp32, grad_communication: fp32,
+          optimizer_states: fp32, stats: fp32}
+    rules:
+      qwen_config_source: published
+      implementation:
+        options: {fuse_rope: false}
+      training: micro-batch x seq_len per micro-batch, no recomputation, no SP; bf16 parameters and fp32 master/grad/Adam
+        states
+      train_layout: megatron_per_row
+      pp_network_dimension: own_logical_dimension
+      megatron_ddp_disable_bucketing: true
+      host_gap: zero
+      busy_fraction: reported
+      clock: per_run_measured
+    input_pins: ['{EG}/distributed_runs/megatron_multi/grid.json']
+  harness: {predict: paper_pipeline/predict_energy.py, timeout_s: 7200}
+  scorer: energy_ratio
+  outputs: [energy_megatron_multi_a100.csv]
+  exceptions: []
+  assumptions: ['33 status-ok cells (clock_verified=1, fake=0); 11 cells failed, OOM-no-checkpoint or not run: kept as measured,
+      not scored', 'MEGATRON_MULTI_SCORE: measured = raw wall per step and raw NVML energy per step summed over all
+      8 GPUs (unused GPUs idle); profiled kernel unions are evidence only', Predicted energy = every rank's prediction (static
+      at the job GPUs' measured idle) + measured idle watts of the unused GPUs x predicted step time, 'Megatron multi-GPU
+      timing: megatron_timing=kernel_trace on the FLAT program, full_astrasim_flattened; TP2xDP2 distributed optimizer, TP4xDP2
+      DDP; TP2xPP2 1F1B with 4 micro-batches', 'One NVSwitch scale-up dimension carries tp and dp (NVSWITCH Switch,
+      300 GB/s per GPU port); pp > 1 rows carry pp on a second logical copy of it (NCCL_LATENCY_PP_DIM), so TP/PP
+      port contention is not modelled', 'NCCL_CURVE_SCOPE: the measured all-reduce curve (NCCL_CURVE) applies
+      to the TP all-reduces >= 1 MiB and the DDP gradient all-reduce (same box type, 1065 MHz locked); above the largest measured
+      size (256 MiB) a call runs at the bus bandwidth of that point; data-parallel reduce-scatter/all-gather (distributed
+      optimizer) run at the curve''s bus bandwidth at the same nccl-tests size S (extension_rsag, nccl-tests doc/PERFORMANCE.md)',
+    'DDP disable_bucketing=True (mm_train.py:162-166): one grad-buffer bucket, so dp > 1 rows issue one gradient all-reduce
+      (DDP) or one reduce-scatter + one parameter all-gather (distributed optimizer) per step (megatron_dp_buckets=one)',
+    'nccl_latency_rule tuning_formula (the mg32 singleton), with C1''s 8.4 us base per NCCL collective', 'Not checked against
+      the description: the 1F1B schedule''s two scalar loss kernels per micro-batch on the last stage (PLAN.md section 3;
+      schedules.py:288-297)']

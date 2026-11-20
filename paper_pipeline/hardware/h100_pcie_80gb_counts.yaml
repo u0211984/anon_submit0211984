@@ -1,0 +1,10 @@
+sku: H100-PCIe-80GB
+gpus: 1
+counts_only: true
+integration_source: h100-b2-hw @ 4d48c595 (config-only cherry-pick)
+base:
+  inference: configs/hardware-config/h100_pcie_80gb_counts.yaml
+  train_norecompute: configs/hardware-config/h100_pcie_80gb_counts_train.yaml
+base_sha256:
+  inference: df62e1ca127a9956
+  train_norecompute: 9775159bf7230318

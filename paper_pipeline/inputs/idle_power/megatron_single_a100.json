@@ -1,0 +1,166 @@
+{
+  "mode": "per_cell",
+  "designation": "MEGATRON_DESC",
+  "cells": {
+    "72": {
+      "power_W": 51.36270683575428,
+      "source": "data/workload_set/megatron/runs_grid_cells/c72/idle.json",
+      "runtime_s": 30.03003725898452,
+      "energy_J": 1542.424,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "73": {
+      "power_W": 53.73190251624621,
+      "source": "data/workload_set/megatron/runs_grid_cells/c73/idle.json",
+      "runtime_s": 30.030427445075475,
+      "energy_J": 1613.592,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "74": {
+      "power_W": 53.77279664806493,
+      "source": "data/workload_set/megatron/runs_grid_cells/c74/idle.json",
+      "runtime_s": 30.03048196597956,
+      "energy_J": 1614.823,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "75": {
+      "power_W": 54.734993808674325,
+      "source": "data/workload_set/megatron/runs_grid_cells/c75/idle.json",
+      "runtime_s": 30.030404419987462,
+      "energy_J": 1643.714,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "76": {
+      "power_W": 54.833035702581206,
+      "source": "data/workload_set/megatron/runs_grid_cells/c76/idle.json",
+      "runtime_s": 30.029542937059887,
+      "energy_J": 1646.611,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "77": {
+      "power_W": 56.14458557026033,
+      "source": "data/workload_set/megatron/runs_grid_cells/c77/idle.json",
+      "runtime_s": 30.03103474492673,
+      "energy_J": 1686.08,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "78": {
+      "power_W": 55.98596116781234,
+      "source": "data/workload_set/megatron/runs_grid_cells/c78/idle.json",
+      "runtime_s": 30.030492732999846,
+      "energy_J": 1681.286,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "79": {
+      "power_W": 54.44243359112717,
+      "source": "data/workload_set/megatron/runs_grid_cells/c79/idle.json",
+      "runtime_s": 30.030490780016407,
+      "energy_J": 1634.933,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "80": {
+      "power_W": 55.39936787097294,
+      "source": "data/workload_set/megatron/runs_grid_cells/c80/idle.json",
+      "runtime_s": 30.030360705102794,
+      "energy_J": 1663.663,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "82": {
+      "power_W": 53.29985336111675,
+      "source": "data/workload_set/megatron/runs_grid_cells/c82/idle.json",
+      "runtime_s": 30.025673600961454,
+      "energy_J": 1600.364,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "84": {
+      "power_W": 53.15674056818069,
+      "source": "data/workload_set/megatron/runs_grid_cells/c84/idle.json",
+      "runtime_s": 30.030076768016443,
+      "energy_J": 1596.301,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "85": {
+      "power_W": 53.074241517154725,
+      "source": "data/workload_set/megatron/runs_grid_cells/c85/idle.json",
+      "runtime_s": 30.030612863018177,
+      "energy_J": 1593.852,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "86": {
+      "power_W": 55.184897387145305,
+      "source": "data/workload_set/megatron/runs_grid_cells/c86/idle.json",
+      "runtime_s": 30.03048077400308,
+      "energy_J": 1657.229,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "87": {
+      "power_W": 54.5200631526622,
+      "source": "data/workload_set/megatron/runs_grid_cells/c87/idle.json",
+      "runtime_s": 30.03039441490546,
+      "energy_J": 1637.259,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "88": {
+      "power_W": 54.52295311875457,
+      "source": "data/workload_set/megatron/runs_grid_cells/c88/idle.json",
+      "runtime_s": 30.030159893096425,
+      "energy_J": 1637.333,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "90": {
+      "power_W": 52.90009970839842,
+      "source": "data/workload_set/megatron/runs_grid_cells/c90/idle.json",
+      "runtime_s": 30.029905591043644,
+      "energy_J": 1588.585,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "91": {
+      "power_W": 53.5940456219489,
+      "source": "data/workload_set/megatron/runs_grid_cells/c91/idle.json",
+      "runtime_s": 30.03055621800013,
+      "energy_J": 1609.459,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "92": {
+      "power_W": 54.18344542854587,
+      "source": "data/workload_set/megatron/runs_grid_cells/c92/idle.json",
+      "runtime_s": 30.030519232037477,
+      "energy_J": 1627.157,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "93": {
+      "power_W": 54.9241493664126,
+      "source": "data/workload_set/megatron/runs_grid_cells/c93/idle.json",
+      "runtime_s": 30.03048784600105,
+      "energy_J": 1649.399,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    },
+    "94": {
+      "power_W": 55.051015792364446,
+      "source": "data/workload_set/megatron/runs_grid_cells/c94/idle.json",
+      "runtime_s": 30.015885741915554,
+      "energy_J": 1652.405,
+      "clock_MHz": 1065,
+      "cuda_context": false
+    }
+  }
+}

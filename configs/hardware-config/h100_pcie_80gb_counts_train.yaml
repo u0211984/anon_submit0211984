@@ -1,0 +1,129 @@
+sw_param:
+  full_recomputation: false
+  precision:
+    tensor_format: bf16
+    kv_cache: bf16
+    parameters: fp32
+    gradients: fp32
+    grad_communication: fp32
+    optimizer_states: fp32
+    stats: bf16
+    master_parameters: 0.0
+parallelism:
+  auto: false
+  pp: 1
+  mb: 1
+  tp: 1
+  cp: 1
+  tp_sp: false
+  train: {dp: 1, ep: 1, tp_ep: false}
+  inference: {replica_count: 1, moe_dp: 1}
+execution_backend: {model: analytical}
+tech_param:
+  core:
+    architecture: sm90
+    num_bundles: 114
+    num_mcu_per_bundle: 4
+    max_ctas_per_sm: 32
+    max_warps_per_sm: 64
+    operating_frequency: 1755000000.0
+    tensor_latency_cycles: 24.0
+    matrix_unit:
+      nominal_flop_rate_per_mcu: 1024
+      util: 1.0
+      dataflow: best
+    vector_unit:
+      nominal_flop_rate_per_bundle: 256
+      util: 1.0
+      lanes: 128
+      simd_width: 1
+      vector_width_bits: 32
+  DRAM:
+    size: 80 GB
+    sector_size_bytes: 32
+    bandwidth: 1631200000000.0
+    util: 1.0
+    latency_cycles: 654.1
+    latency: 3.72706552707e-07
+  SRAM-L2:
+    size: 50 MB
+    sector_size_bytes: 32
+    bandwidth: 8509090909090.909
+    util: 1.0
+    latency_cycles: 271.9
+    latency: 1.54928774929e-07
+    cache:
+      line_bytes: 128
+      partitions: 2
+      associativity: 16
+      dirty_ways: null
+      sources:
+        line_bytes: ncu_2025.1_2.3.3
+        partitions: PLAN_NOTES_0949_A100_literal_rule_not_H100_spec
+        associativity: PLAN_NOTES_0949_inherit_A100_no_H100_source
+  SRAM-L1:
+    size: 26615808
+    bandwidth: 19673243801652.895
+    util: 1.0
+    latency_cycles: 23.46
+    latency: 1.33675213675e-08
+  SRAM-R:
+    size: 29884416
+    bandwidth: 122 TB
+    util: 1.0
+    latency: 0
+memory_hierarchy:
+  l0: {type: SRAM-R, scope: mcu}
+  l1: {type: SRAM-L1, scope: mcu-bundle}
+  l2: {type: SRAM-L2, scope: global}
+  l3: {type: DRAM, scope: global}
+l2_model:
+  partitions_rule: a100_literal
+  capacity: effective
+  step_simulation: true
+  sharing_classes: true
+  private_copies: 1.0
+  gemm_min_tile_m: 64
+  gemm_tile:
+    order: default
+    single_miss: true
+    miss_shape: recency
+    default_launch_order: {sweep_axis: m, strip_width: 8, serpentine: true}
+    ws_order: false
+    ef_stores: false
+    strip_in_wave: false
+    splitk: false
+    splitk_writes: false
+    raster_weight_stationary: true
+    dram_read_ecc: false
+  memory_time_rule: cold_kernel
+metadata:
+  counts_only: true
+  status: pre-B5_missing_H100_measurements
+  tile_selection_inputs:
+    source: NVIDIA_H100_PCIe_specification_whitepaper_v1.04_Table_3_pp39_40
+    memory_latency_source: SXM5_measured_standins_same_GH100_SM_DGNA_2607.19922v1_Table_2_section_5.2_Figs_4_5_and_CREDIT_2609.01864v1_III_A_Table_II_IV_A
+    cache_bandwidth_source: Antepara_SC25_Table_1_GH200_L1_per_SM_times_114_and_L2_global_both_times_1755_over_1980
+    cache_bandwidth_reference_clock_hz: 1980000000.0
+    tensor_boost_hz: 1620000000.0
+    scalar_boost_hz: 1755000000.0
+    dense_bf16_fp16_flops_per_s_at_tensor_boost: 756000000000000.0
+    fp32_flops_per_s_at_scalar_boost: 51200000000000.0
+    clock_rule: measurement_operating_clock_H100_unlocked_default_1755MHz_boost_A100_locked_1065MHz
+    mma_latency: measured_H100_PCIe_probe_24.0_cycles
+    omitted_mma_behavior: opmodel_defaults_to_26_cycles_for_sm80_m16n8k16_with_warning
+    missing_source: H100_MMA_probe
+  hardware_limits:
+    hbm_type: HBM2e
+    shared_memory_bytes_per_sm: 233472
+    max_shared_memory_bytes_per_block: 232448
+    reserved_shared_memory_bytes_per_block: 1024
+    registers_32bit_per_sm: 65536
+    max_registers_32bit_per_thread: 255
+  inherited_model_rules:
+    register_allocation_per_thread: 8
+    allocator: A100_PyTorch_caching_allocator
+    runtime: A100_paper_implementation_rules
+    flash_tiles: A100_FA2_is_sm8x_false
+    flash_spills: false
+    gemm_catalog: sm80_default_pre_B5

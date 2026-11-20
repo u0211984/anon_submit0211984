@@ -1,0 +1,138 @@
+sw_param:
+  full_recomputation: false
+  kernel_launch_overhead: 9e-6
+  inference_step_overhead: 0.00072
+  inference_prefill_overhead: 0.00159
+  dp_zero_stage: 1
+  precision:
+    tensor_format: bf16
+    kv_cache: bf16
+    parameters: bf16
+    gradients: bf16
+    grad_communication: bf16
+    optimizer_states: bf16
+    stats: bf16
+    master_parameters: 0.0
+  h2d_bandwidth: -1
+  dp_microbatch: last_mb
+static_power_w: 54.0
+tech_param:
+  core:
+    operating_frequency: 1410000000.0
+    num_bundles: 108
+    nominal_energy_per_flop: 7.0e-13
+    tensor_energy_per_flop: 7.0e-13
+    vector_energy_per_flop: 1.297e-11
+    tensor_latency_cycles: 26
+    device_fixed_overhead_cycles: 7050
+    num_mcu_per_bundle: 4
+    matrix_unit:
+      nominal_flop_rate_per_mcu: 512
+      util: 1.0
+      FMA_d1: 8
+      FMA_d2: 4
+      dataflow: best
+    vector_unit:
+      nominal_flop_rate_per_bundle: 128
+      util: 1.0
+      lanes: 64
+      simd_width: 1
+      vector_width_bits: 32
+    padded_tensor_energy_per_flop: 3.7e-13
+  DRAM:
+    size: 80 GB
+    bandwidth: 1631200000000.0
+    sector_size_bytes: 32
+    latency_cycles: 566
+    util: 1.0
+    latency: 4.01418439716e-07
+    dynamic_energy_per_sector: 3.35616e-09
+  SRAM-L2:
+    size: 40 MB
+    bandwidth: 4300000000000.0
+    sector_size_bytes: 32
+    latency_cycles: 202.8
+    util: 1.0
+    latency: 1.43829787234e-07
+    dynamic_energy_per_sector: 1.20576e-09
+  SRAM-L1:
+    size: 18137088
+    bandwidth: 14800000000000.0
+    sector_size_bytes: 32
+    latency_cycles: 29
+    util: 1.0
+    latency: 2.05673758865e-08
+    dynamic_energy_per_sector: 4.0704e-10
+  SRAM-R:
+    size: 27 MB
+    bandwidth: 122 TB
+    latency: 0
+    util: 1
+    dynamic_energy_per_byte: 0.0
+memory_hierarchy:
+  l0:
+    type: SRAM-R
+    scope: mcu
+  l1:
+    type: SRAM-L1
+    scope: mcu-bundle
+  l2:
+    type: SRAM-L2
+    scope: global
+  l3:
+    type: DRAM
+    scope: global
+parallelism:
+  tp: 4
+  tp_sp: false
+  cp: 1
+  pp: 1
+  mb: 1
+  train:
+    dp: 1
+    ep: 1
+    tp_ep: true
+  inference:
+    replica_count: 1
+    moe_dp: 1
+  auto: false
+network:
+  overlap:
+    tp_overlap: 0.0
+    tp_sp_overlap: 0.0
+    cp_overlap: 0.0
+  dimensions:
+  - id: dim0
+    label: a100_hgx_nvswitch_fc_direct
+    size: auto
+    topology:
+      type: FC
+      bandwidth: 100000000000.0
+      util: 0.8
+      latency: 5.0e-06
+      energy_per_bit: 8.0e-12
+    parallelisms:
+    - tp
+    - cp
+    - ep
+    collective_override:
+      all_reduce: direct
+      all_gather: direct
+      reduce_scatter: direct
+      all_to_all: direct
+execution_backend:
+  model: astrasim
+  astrasim:
+    backend: astrasim
+    mode: full_astrasim_hierarchical
+    collectives:
+      all_gather: direct
+      all_reduce: direct
+      reduce_scatter: direct
+      all_to_all: direct
+    sys_options:
+      endpoint_delay: 5
+      active_chunks_per_dimension: 8
+      preferred_dataset_splits: 4
+inference:
+  kvcache_type: hbm_only

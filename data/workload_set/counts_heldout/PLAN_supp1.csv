@@ -1,0 +1,2 @@
+order,tag,model,family,phase,batch,seq,framework,hub_config
+7,SmolLM2-1.7B_train_2x1024_nockpt,SmolLM2-1.7B,llama,train,2,1024,pytorch-eager,

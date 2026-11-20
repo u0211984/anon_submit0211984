@@ -1,0 +1,39 @@
+model_param:
+  model_type: qwen3_moe
+  hidden_dim: 2048
+  num_layers: 48
+  intermediate_size: 6144
+  vocab_size: 151936
+  attention:
+    num_heads: 32
+    kv_heads: 4
+    head_dim: 128
+    attention_type: gqa
+    use_flashattention: true
+    attention_tile_size: 128
+    use_rope: true
+  moe:
+    num_experts: 128
+    top_k: 8
+    moe_intermediate_size: 768
+    n_shared_experts: 0
+    moe_layer_freq: 1
+    first_k_dense_replace: 0
+    routing_policy: multinomial_expected
+    expert_imbalance_factor: 1.0
+  mode: LLM
+  run_type: inference
+  tied_embeddings: false
+  global_batch_size: 4
+  gradient_accumulation_steps: 1
+  seq_len: 1536
+  decode_len: 1024
+  attention_bias: false
+  max_position_embeddings: 40960
+  use_sliding_window: false
+  moe_tile_rule: vllm_default_config
+  moe_source_collective_rule: network_model
+  moe_source_replay_steps: 3
+  moe_grouped_traffic: cta_operand_proxy
+inference_param:
+  sample_every: -1

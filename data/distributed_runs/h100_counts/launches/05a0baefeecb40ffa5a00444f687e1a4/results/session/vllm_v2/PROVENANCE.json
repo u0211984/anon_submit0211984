@@ -1,0 +1,417 @@
+{
+  "launch": "05a0baefeecb40ffa5a00444f687e1a4",
+  "pins": {
+    "path": "distributed_runs/h100_counts/pins/a100-cells.json",
+    "sha256": "4e2a0b159a6bd1eec1777bb45dbae89676cd485b457c4a2241c56c8dd6fdbd43"
+  },
+  "setup": {
+    "result.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/result.json",
+      "sha256": "937d9a9d969e869c22c88688b249fde5441ba634dc0e8805eba8cfabdcd5ab3d"
+    },
+    "device.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/device.json",
+      "sha256": "28b321e8b19f2436d2851997eda92709d0fe03ce317b5b770415d971e71692d9"
+    },
+    "env-check-vllm.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/env-check-vllm.json",
+      "sha256": "144e3a242e4dceb68c72eef1461deb5dab59aa82842b6aee37116e0532e09812"
+    },
+    "env-check-train.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/env-check-train.json",
+      "sha256": "f73924642d559dced6d92625e2a85508c14158555d4d996776e6ca4b0f123f90"
+    },
+    "ncu-version.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/ncu-version.txt",
+      "sha256": "02b24976379c594eb2d7d1135918a0af9ee9770dae4ab42e18824e19210b1eb6"
+    },
+    "nvidia-smi.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/nvidia-smi.txt",
+      "sha256": "7690121ebee67915f2ff18c5f8d723f9675f31a0452b49e33d5626bb9fc85bcd"
+    },
+    "profiling-permission.txt": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/profiling-permission.txt",
+      "sha256": "870e4a4eec63747161cee327470ed21a6c19119a164a1596730ec48e98e5470d"
+    },
+    "source-seal.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/source-seal.json",
+      "sha256": "190f3a85fe7d6c148d51398b1ad51e61a3da1a8014379636bb9af3be66fd8dbe"
+    },
+    "replay.json": {
+      "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/setup/replay.json",
+      "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+    }
+  },
+  "cells": [
+    {
+      "tag": "Llama-3.2-1B_prefill_1x1024",
+      "cell_id": "00-Llama-3.2-1B-prefill",
+      "source_capture_sha256": "8b868ca7a1dfac36687f5e155171deb564b5744055ec19d855624de3522cc1e1",
+      "repair_attempt": 2,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/capture.csv",
+          "sha256": "8b868ca7a1dfac36687f5e155171deb564b5744055ec19d855624de3522cc1e1"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/cell.json",
+          "sha256": "4484cc57cc82497bd4d659115596c4c1aae625f705bb40e930c51a2462bab63b"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/command.json",
+          "sha256": "d87e17687af31fecf1b413dfe9bbb7f6c341c941aa1361c91ba2ca68d64fec60"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/result.json",
+          "sha256": "63edbcd08d632072d01e794905917b27d869e01eae36cda08619f8d9340b073d"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/kernels.jsonl",
+          "sha256": "9fc82ec26188c38b8d1f280f8683c67b59e5bfbf9e9814f50ad7a286838120d0"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/00-Llama-3.2-1B-prefill/attention.json",
+          "sha256": "5fdaa10b8a4715229f64c98efe47e215c6823b48b7591722e1ee425451359128"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.2-1B_decode_1x1024",
+      "cell_id": "01-Llama-3.2-1B-decode",
+      "source_capture_sha256": "e8ccecf376a40b41b86e64c5578133ee9fdf605d67cd699898bc6b58d6120d52",
+      "repair_attempt": 3,
+      "eager_decode": true,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/capture.csv",
+          "sha256": "e8ccecf376a40b41b86e64c5578133ee9fdf605d67cd699898bc6b58d6120d52"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/cell.json",
+          "sha256": "d24898af8c3959acc5f73d8331ff72ae9ff1ef1b960d545bb0f742f96051394b"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/command.json",
+          "sha256": "73a6f67512e9195fa2a3e79f599920a2db730009e298e943e6ccb70039ab617d"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/result.json",
+          "sha256": "5c18f77432021a686f6873c57b5095f0019349fbd291bf301c7175f6037824eb"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/kernels.jsonl",
+          "sha256": "ce63465dab1fc2d3545fce81edc5e38fab07eee83ae444250a9ceb522078c4d2"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/01-Llama-3.2-1B-decode/attention.json",
+          "sha256": "5c774409756e2cd6b05a86c3fe316c022fdf0880d040a21345057d11146a6940"
+        }
+      }
+    },
+    {
+      "tag": "SmolLM2-1.7B_prefill_1x1024",
+      "cell_id": "02-SmolLM2-1.7B-prefill",
+      "source_capture_sha256": "978d848027b512374e5664af20964e488f973b920927f85e7f1cbfe7b13def32",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/capture.csv",
+          "sha256": "978d848027b512374e5664af20964e488f973b920927f85e7f1cbfe7b13def32"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/cell.json",
+          "sha256": "c413c73e80ce427d0db4ee6cdd08dc15ddf1f966ec8bc0745d88a1d521174e74"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/command.json",
+          "sha256": "e440359ef54a702be7aad82e822b1b626af39e3bc8f410a04bc1d746027ff14b"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/result.json",
+          "sha256": "1ecebb1997c87ed4cc3827f29b765e68d2c419cc1fdf8e97834d448b6a15eca8"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/kernels.jsonl",
+          "sha256": "91a863babb06204c979c6fcc957cf0357cc84dc1da03133f28cb464c77cb30f4"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/02-SmolLM2-1.7B-prefill/attention.json",
+          "sha256": "238c87c5b7aad24d49efcef9f3ea05f0b16c7eb451fca04ae43541099688f61f"
+        }
+      }
+    },
+    {
+      "tag": "SmolLM2-1.7B_decode_1x1024",
+      "cell_id": "03-SmolLM2-1.7B-decode",
+      "source_capture_sha256": "43fb4d10d652e85bbbc73f52e247bdef1426244404a5862a039d0ed2bf45af27",
+      "repair_attempt": 3,
+      "eager_decode": true,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/capture.csv",
+          "sha256": "43fb4d10d652e85bbbc73f52e247bdef1426244404a5862a039d0ed2bf45af27"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/cell.json",
+          "sha256": "c41070556893cbf666f8ac037c2fe9ec4d7da582ef009cb296f834d8c69f41c0"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/command.json",
+          "sha256": "d2ca9307ecb8e33eec9b132ccb148831a850ca23e6bd2fe121025992916e2f14"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/result.json",
+          "sha256": "e0f4a33d1f1f8ce5d7ca1dd52512e8f7b78a2053d328351d998bd5b84100ff96"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/kernels.jsonl",
+          "sha256": "85af98be957c5daf6ea33b0245be531eba3095e540ce18b6d9d77644c0abb573"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/03-SmolLM2-1.7B-decode/attention.json",
+          "sha256": "c13c5491b931412b0a81a6f530bc55a154a33574e63c7e27a003e2a5c6164638"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.2-3B_prefill_1x1024",
+      "cell_id": "06-Llama-3.2-3B-prefill",
+      "source_capture_sha256": "e3ad7b2ead81f2b742bac1e5cf07526efe3b1428fd9e89234d8df15d3e975978",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/capture.csv",
+          "sha256": "e3ad7b2ead81f2b742bac1e5cf07526efe3b1428fd9e89234d8df15d3e975978"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/cell.json",
+          "sha256": "74d581704e240f98e50dec94211f7fc389f864a4e16e62536c6bf447b30f4f06"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/command.json",
+          "sha256": "73160362f5f68aabcb11c953085a43f74520d56758382ab85bcc3117ebc63026"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/result.json",
+          "sha256": "47a7e7f39b4cbb8843e5e39bc8b9cba6834eea799b8747a94ba61843f3571214"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/kernels.jsonl",
+          "sha256": "4f6d685b7be6e0f1047089738899eb78dd1ede45ccb85c5addcbac0ddd48bd94"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/06-Llama-3.2-3B-prefill/attention.json",
+          "sha256": "bc4f448a8d57e6cab3106295569ce4e4d0689d4d92e393c5edbb19a070b674fa"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.2-3B_decode_1x1024",
+      "cell_id": "07-Llama-3.2-3B-decode",
+      "source_capture_sha256": "0c7e41b3d22726112425cd2265d49cd41e024403c47f9720eb08123d47c49696",
+      "repair_attempt": 3,
+      "eager_decode": true,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/capture.csv",
+          "sha256": "0c7e41b3d22726112425cd2265d49cd41e024403c47f9720eb08123d47c49696"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/cell.json",
+          "sha256": "43012c79f6dcde2d812c8e8deeaa9faf04af2bf534a652b361f53b6227f9637f"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/command.json",
+          "sha256": "68203dab41a1f9e84bdc765dc7923d3c41fd6b03e820ea1b80e896ff2356b388"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/result.json",
+          "sha256": "0558c96d572ccfa0cb37d06e809722d4425042027074f64af56862dab9a14dfe"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/kernels.jsonl",
+          "sha256": "5afcdc2b4a253c3d81de5dde5580a18102f455384ed4ea0b2e07cd5ab3eadb49"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/07-Llama-3.2-3B-decode/attention.json",
+          "sha256": "5f67910d5ed87ef17774bbad7fa1f00c119ae9e91d84b749f1f5659b8e762a11"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.1-8B_prefill_1x1024",
+      "cell_id": "10-Llama-3.1-8B-prefill",
+      "source_capture_sha256": "de41db38fda2183185817d8af3126d7e01031159fae56b1215075bddfaf26b02",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/capture.csv",
+          "sha256": "de41db38fda2183185817d8af3126d7e01031159fae56b1215075bddfaf26b02"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/cell.json",
+          "sha256": "9def583b018ad07e7a683175c48f3c2d7d8e56d819975e455150c727f9851c26"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/command.json",
+          "sha256": "0625992d55c81b64022bcadaa2fd461b38521d10c49a0122f5c1df78c16ffc8e"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/result.json",
+          "sha256": "4fe28bbc847e3b3b99953aa8be7a087aecda37f995cce4003db641d23288d997"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/kernels.jsonl",
+          "sha256": "971e2b49f0cd8c171994447d03915440297656512d3d7b67c77775a812b5a18d"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/10-Llama-3.1-8B-prefill/attention.json",
+          "sha256": "f425238532b20fd03b4c864332f792761066d045f38015c3d3576d161888bbee"
+        }
+      }
+    },
+    {
+      "tag": "Llama-3.1-8B_decode_1x1024",
+      "cell_id": "11-Llama-3.1-8B-decode",
+      "source_capture_sha256": "25ff3e76700f50bda4be6cc1154882e9dc72975ca5f0c8beebcd610af9deb0b5",
+      "repair_attempt": 3,
+      "eager_decode": true,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/capture.csv",
+          "sha256": "25ff3e76700f50bda4be6cc1154882e9dc72975ca5f0c8beebcd610af9deb0b5"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/cell.json",
+          "sha256": "4a64104fb42407c25eb112bb405157337999516fcfb5a16dc51a14e097f8092d"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/command.json",
+          "sha256": "f71defd42be0d7c7cf74d7ee87cdfac268234c72e40c89b36d41b476614958c7"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/result.json",
+          "sha256": "2e91f4fac1627a06f1a3b73e2280955fb305bc80c3f6b9508e52cbe80feb071a"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/kernels.jsonl",
+          "sha256": "4062af6e22f899f4c906d6c6b0a0f126a9906ccde90d52d3eb435fd5023f2bf6"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/11-Llama-3.1-8B-decode/attention.json",
+          "sha256": "320ac415d80b015786de2f98fd525f7e226e6bed385c1b9a66fff05c1e4ecd33"
+        }
+      }
+    },
+    {
+      "tag": "Llama-2-13B_prefill_1x1024",
+      "cell_id": "12-Llama-2-13B-prefill",
+      "source_capture_sha256": "740d8cc9be994eadea8e7ca7bff0f09dee40211f0a1aa12ecba7d7e610b84d4a",
+      "repair_attempt": 3,
+      "eager_decode": false,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/capture.csv",
+          "sha256": "740d8cc9be994eadea8e7ca7bff0f09dee40211f0a1aa12ecba7d7e610b84d4a"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/cell.json",
+          "sha256": "6490da14cf58fe16cdea44784b2c6dc3f279093d64c898b6255d08557a33ecd6"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/command.json",
+          "sha256": "3702582a956a11b3c16ca1f6767bd7e68b8342760856a08877e84ef732da74df"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/result.json",
+          "sha256": "2e2d72520fd94afb9e9d63cc6586e7b31f036949739b7976d5ebaf7e6495a991"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/kernels.jsonl",
+          "sha256": "a6099cef716c206f1f7e536a3a779de6dfb0876cebb695e5cfbe4eb42b4cabdf"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/12-Llama-2-13B-prefill/attention.json",
+          "sha256": "1e2f47344b33f3356f2c3e62b1896c5531fd3a97b8d9de96c67e3f376efcd610"
+        }
+      }
+    },
+    {
+      "tag": "Llama-2-13B_decode_1x1024",
+      "cell_id": "13-Llama-2-13B-decode",
+      "source_capture_sha256": "ca0fa15c85fbd8c7e3f92d412b436dc381aa555f4ef2debdc95e4df044cde80e",
+      "repair_attempt": 3,
+      "eager_decode": true,
+      "sources": {
+        "capture.csv": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/capture.csv",
+          "sha256": "ca0fa15c85fbd8c7e3f92d412b436dc381aa555f4ef2debdc95e4df044cde80e"
+        },
+        "cell.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/cell.json",
+          "sha256": "8ab94ca28b61e907608299a1ac69ae3f2d2feca7a2cf04e4e467896c8e0ed72a"
+        },
+        "command.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/command.json",
+          "sha256": "15cc16338fadba7e1f6549c2b0429f50eafcc2dac46df8a906778db5055278ca"
+        },
+        "result.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/result.json",
+          "sha256": "d6a7446e54e19556f7f16b57ca60efd21224bf5c0419cc941b2deab48f653c5f"
+        },
+        "replay.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/replay.json",
+          "sha256": "91d188d789319ea992ce8d7a2b64e7024114de956a25a9c5599f1019af17dab3"
+        },
+        "kernels.jsonl": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/kernels.jsonl",
+          "sha256": "0912bfd1a4b249a2c87a5c2827da4d23f14250a691dfac5916036f1dfab7628b"
+        },
+        "attention.json": {
+          "path": "distributed_runs/h100_counts/launches/05a0baefeecb40ffa5a00444f687e1a4/results/session/stages/13-Llama-2-13B-decode/attention.json",
+          "sha256": "6fbbe9137e755a39bfe36c7f60355044b6d2995df2a9675ec62460f45edf87b5"
+        }
+      }
+    }
+  ]
+}

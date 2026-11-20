@@ -1,0 +1,124 @@
+static_power_rule: measured_idle
+a100_latency_source: luo_2501_12084
+static_power_idle_by_hardware:
+  a100_pcie80_1065: {path: paper_pipeline/inputs/idle_power/bare_step96.json, mode: fixed, power_W: 51.36}
+named_alternatives:
+  LT-LIST-SK: {model.implementation.gemm_library.catalog: cublaslt_sm80_bf16_splitk, model.implementation.gemm_library.forced_templates: null}
+input_pins: [paper_pipeline/inputs/network/a100_sxm4_1065_nccl.json, opmodel/src/opmodel/configs/gemm_catalogs/sm90_evidence/lt_heur_forced_h100.csv,
+  opmodel/src/opmodel/configs/gemm_catalogs/cublaslt_sm80_bf16.yaml, opmodel/src/opmodel/configs/gemm_catalogs/cublaslt_sm80_bf16_splitk.yaml,
+  paper_pipeline/a100_latency.py, paper_pipeline/static_power.py, paper_pipeline/reporting.py]
+hardware:
+  sw_param: {gemm_timing_backend: opmodel, kernel_launch_mode: graph_when_captured, graph_launch_overhead_s: 0.0, kernel_launch_overhead: 9e-6,
+    dp_zero_stage: 1, dp_microbatch: last_mb}
+  tech_param:
+    core: {tensor_latency_cycles: 25, max_ctas_per_sm: 32, max_warps_per_sm: 64}
+    SRAM-L2:
+      cache:
+        line_bytes: 128
+        partitions: 2
+        associativity: 16
+        dirty_ways: null
+        sources: {line_bytes: ncu_guide_2.3.7, partitions: a100_wp_p16+forum_328183_p10, associativity: invcmp_3.6}
+  l2_model:
+    step_simulation: true
+    sharing_classes: true
+    private_copies: 1.0
+    capacity: effective
+    gemm_min_tile_m: 64
+    gemm_tile:
+      order: cutlass_identity_swizzle
+      single_miss: true
+      miss_shape: recency
+      default_launch_order: {sweep_axis: m, strip_width: 8, serpentine: true}
+      ws_order: false
+      ef_stores: false
+      strip_in_wave: false
+      splitk: false
+      splitk_writes: false
+      raster_weight_stationary: true
+      dram_read_ecc: false
+    memory_time_rule: cold_kernel
+    steady_state: periodic_prime
+    address_plan: onepass
+model:
+  moe_tile_rule: vllm_default_config
+  moe_source_collective_rule: network_model
+  implementation:
+    allocator: default
+    gemm_library:
+      catalog: cublaslt_sm80_bf16_splitk
+      forced_templates: null
+      selection_rule: useful_fraction
+      moe_min_tile: 16
+      tile_padding: cta
+      epilogue_smem: cutlass
+      clear_last_stage: true
+      smem_staging: false
+      smem_staging_latency: true
+      gemv: {rule: cublas, max_n: 2304, max_m: 4, stream_bw: 0, ideal_roofline: false}
+    options: {vllm_custom_barrier_timing: explicit_flag_barriers}
+    kernel_rules: {smallgrid_timing: true, smallgrid_decode_only: false, kv_cache_write: true, prefill_logits_last_token: true,
+      infer_vocab_parallel_head: true, embedding_gather: true, vllm_pointwise: true, decode_batched_attention: true, moe_active_experts: true,
+      moe_grouped_gemm: true, moe_permute_kernels: true, infer_dp_attention: false, moe_tp_replicated_combine: false, rope_fused_kv_write: false,
+      moe_grouped_bw: 0, flash_rebuild: true, optimizer_launch_trace: true, vllm_attn_output_zeros: true, vllm_selected_sampler: true}
+  qwen2_bias_mode: cublaslt_epilogue
+network:
+  allreduce_model: measured_curve
+  allreduce_timing_basis: cuda_event_large_message_proxy
+  allreduce_curve: paper_pipeline/inputs/network/a100_sxm4_1065_nccl.json
+  allreduce_include_unverified: true
+  allreduce_rsag_rule: allreduce_bus_bandwidth
+  link_energy_rule: per_payload_byte
+  nccl_latency_rule: astrasim_per_hop
+  collective_launch_overhead_s: 8.4e-06
+  collective_launch_overhead_key_available: true
+  per_step_latency_s: 3.4e-06
+  nvlink_bandwidth_Bps: 300.0e9
+  bandwidth_rule: 'Switch: 300e9 per GPU port; FullyConnected over n GPUs: 300e9 / (n - 1) per peer link'
+  topology: Switch
+  topology_by_entry: {energylens: FullyConnected}
+  nvlink_link_energy_rule_by_entry: {}
+  nvlink_physical_inputs_for: [multi_gpu32_locked1065]
+  links_per_gpu: 12
+  lanes_per_link: 4
+  lane_rate_bps: 50000000000.0
+  collective_algorithm: auto
+  execution_backend: astrasim
+  active_chunks_per_dimension: 8
+  util: 0.8
+  overlap: {tp_overlap: 0.0, tp_sp_overlap: 0.0, cp_overlap: 0.0}
+  phase_overrides: none
+  energy_per_bit: 8.0e-12
+  inter_node:
+    case_studies: {kind: infiniband_hdr, bandwidth_Bps_per_gpu: 25.0e9, per_step_latency_s: 1.4e-05, energy_per_bit: 2.0e-11}
+host_overheads: {decode_step_s: 0.00072, prefill_s: 0.00159}
+clock: {multi_gpu: per_run_measured}
+described_families:
+  llama: {projection_bias: false, qk_norm: false}
+  qwen2: {projection_bias: true, qk_norm: false}
+  qwen3: {projection_bias: false, qk_norm: true}
+  qwen3_moe: {projection_bias: false, qk_norm: true, moe: true}
+flag_sheet_multi_gpu: ['Hardware latencies: tensor 25 cycles (Sun et al. Table V, 24.7 rounded), DRAM / L2 / shared memory
+    566 / 202.8 / 29 cycles (Luo et al. Table 3); same as the single-GPU entry.', 'C1: NCCL launch overhead 8.4 us per collective
+    on the issuing rank (sw_param.collective_launch_overhead); network per-hop latency 3.4 us (NVLink hwLat)', 'NVSWITCH:
+    NVSwitch modelled as AstraSim analytical Switch with no contention inside the switch (assumption with no source); Qwen72B
+    and EnergyLens retain FullyConnected until their physical boxes are verified', In the network simulator's hierarchical
+    mode the launch is rounded per block (about +0.03 % of an 80-layer TP8 decode step), 'For large messages the simulator
+    hides almost all per-hop latency behind the transfer (a 16 MiB ring all-reduce on 8 GPUs pays about one hop, where NCCL''s
+    formula gives 47.6 us)']
+flash_rebuild_available: true
+settings_profile_required: false
+flag_sheet: ['C8/F6 FlashAttention: FA-2 kernels described from the pinned public source (vLLM flash-attention ee4d25bd, Dao
+    979702c8 for torch); time from the kernel''s structure at compute utilisation 1.0; occupancy from the compiled registers
+    of the installed kernels; Megatron''s flash-attn version assumed (dao-pip-unknown)', C14/F7 host gaps 0.72/1.59 ms measured
+    on our vLLM A100 PCIe; TODO may be eliminated, F8 bandwidth 0.8 x spec (RAPID-LLM SXM4 calibration rule), 'F9 op-model
+    constants from observation (min tile 64, launch order, GEMV 2304/4); max 32 CTAs/SM from the CUDA CC 8.0 table', F10 clear-stage
+    SMEM term rests on our counter match (CUTLASS default off), 'tensor_latency_cycles 25: Sun et al., Table V, 24.7 cycles
+    rounded to the integer hardware field', 'L2: shared lines 2 copies (one per partition), single-reader lines 1 copy (designation
+    L2_PRIVATE_1); 20 MiB effective (staff post + patent); LRU, no dirty-ways limit']
+todo: ['C14/F7: host gaps may be eliminated (sensitivity showed a small effect)', 'F9: test the documented alternatives (CUTLASS
+    Identity8 launch order, 32 CTAs per SM)', 'F12/F13: EnergyLens rescaled references kept with an explicit label in the
+    figure']
+designations_needed:
+  all_entries: []
+  multi_gpu_entries: []

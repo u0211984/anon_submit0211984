@@ -1,0 +1,201 @@
+{
+ "status": "Fig. 13a references rescaled to the EnergyLens Fig. 7b energy per output token",
+ "source_pdf": "EnergyLens.pdf",
+ "source_pdf_sha256": "3604f9667b47f4a45bb434ab1f5d04ae0d7255e73555d5fc586359d249a7a89d",
+ "rasters": {
+  "p9-002.png": "540712b0fca9d722ef7a6782037569f03b0c49c907744b9fb6aad4506bc59af8",
+  "p13-000.png": "1b303792f19e2b322e1fdaa3bd3aeaf8e98edc795b29dd884c1ae483aba61b28"
+ },
+ "source_points": "suite/energylens_v6/results/v11full/points.csv",
+ "source_points_sha256": "0e3890c7b82b2b83174e60dbc253a7b2758b8e8f831db4f4f324d162108ec77d",
+ "changed_rows": 44,
+ "definition": "k_B = (EnergyLens Fig. 7b TP4 EPOT_B x 1024) / (EnergyLens Fig. 13a EnergyLens total_B); applied to both Fig. 13a series (measured and EnergyLens) for energy_per_request only. Fig. 7b is EnergyLens predictions (Fig. 7a TP4 B2 equals the F5 EnergyLens prediction), so k_B is prediction-to-prediction across two EnergyLens figures.",
+ "f13_mape_pct": {
+  "raw": {
+   "tokenjoule": 69.06697075145908,
+   "energylens": 3.877544531661392
+  },
+  "reconciled": {
+   "tokenjoule": 15.034751915759697,
+   "energylens": 3.877544531661392
+  },
+  "note": "k_B scales measured and EnergyLens alike, so the EnergyLens/measured ratio is unchanged."
+ },
+ "fig7b_calibration": {
+  "y_major_px": {
+   "1e1": 485.0,
+   "1e0": 1113.0
+  },
+  "px_per_decade": 628.0,
+  "x_ticks_px": [
+   271.0,
+   513.0,
+   754.0,
+   996.0,
+   1238.0,
+   1479.0,
+   1721.0
+  ],
+  "s_per_px": 4.138337667802681e-05,
+  "minor_tick_residual_px": [
+   0.26429592789600065,
+   0.14051183094056796,
+   -0.2784308710466803,
+   -0.32101475907177246,
+   -0.04683727698011353,
+   0.09367455396045443,
+   -0.3678520360519997,
+   0.046837276980227216
+  ],
+  "pixel_unc": 3.0
+ },
+ "fig9_calibration": {
+  "y_ticks_px": [
+   132.0,
+   325.0,
+   519.0,
+   712.0,
+   905.0,
+   1098.0,
+   1291.0
+  ],
+  "w_per_px": -0.12941387338050656,
+  "tick_fit_max_resid_w": 0.06009782995653268,
+  "pixel_unc": 2.0
+ },
+ "per_batch": [
+  {
+   "batch": 1,
+   "fig7b_epot_j_per_token": 33.22743486099064,
+   "fig7b_tpot_s": 0.04032515248116771,
+   "fig7b_x1024_j": 34024.89329765442,
+   "f13a_energylens_raw_j": 16866.32825719,
+   "f13a_measured_raw_j": 16054.14551607,
+   "k_B": 2.0173266391367566,
+   "k_B_rel_unc": 0.011060328451469648,
+   "f13a_energylens_reconciled_j": 34024.89329765442,
+   "f13a_measured_reconciled_j": 32386.455418145924,
+   "tokenjoule_j": 27902.777383065648,
+   "tokenjoule_ratio_raw": 1.7380418880055195,
+   "tokenjoule_ratio_reconciled": 0.8615570003820764,
+   "energylens_ratio": 1.0505902192244998
+  },
+  {
+   "batch": 2,
+   "fig7b_epot_j_per_token": 17.81542463575627,
+   "fig7b_tpot_s": 0.042932305211883404,
+   "fig7b_x1024_j": 18242.99482701442,
+   "f13a_energylens_raw_j": 9060.34968979,
+   "f13a_measured_raw_j": 8798.6463621,
+   "k_B": 2.0134978727777177,
+   "k_B_rel_unc": 0.011060328451469648,
+   "f13a_energylens_reconciled_j": 18242.99482701442,
+   "f13a_measured_reconciled_j": 17716.055733411755,
+   "tokenjoule_j": 15409.843766389313,
+   "tokenjoule_ratio_raw": 1.7513880126796455,
+   "tokenjoule_ratio_reconciled": 0.8698236220451135,
+   "energylens_ratio": 1.0297435897432226
+  },
+  {
+   "batch": 4,
+   "fig7b_epot_j_per_token": 10.203706587811215,
+   "fig7b_tpot_s": 0.04351167248537578,
+   "fig7b_x1024_j": 10448.595545918684,
+   "f13a_energylens_raw_j": 5206.99379583,
+   "f13a_measured_raw_j": 5225.04230118,
+   "k_B": 2.0066464366226824,
+   "k_B_rel_unc": 0.011060328451469648,
+   "f13a_energylens_reconciled_j": 10448.595545918684,
+   "f13a_measured_reconciled_j": 10484.812514865627,
+   "tokenjoule_j": 9163.074297275956,
+   "tokenjoule_ratio_raw": 1.7536842324140818,
+   "tokenjoule_ratio_reconciled": 0.8739378300073866,
+   "energylens_ratio": 0.9965457685680507
+  },
+  {
+   "batch": 8,
+   "fig7b_epot_j_per_token": 5.140285737239525,
+   "fig7b_tpot_s": 0.04384273949879999,
+   "fig7b_x1024_j": 5263.652594933274,
+   "f13a_energylens_raw_j": 2653.13028765,
+   "f13a_measured_raw_j": 2490.69373942,
+   "k_B": 1.9839404869918897,
+   "k_B_rel_unc": 0.011060328451469648,
+   "f13a_energylens_reconciled_j": 5263.652594933274,
+   "f13a_measured_reconciled_j": 4941.388150332566,
+   "tokenjoule_j": 4182.574109237344,
+   "tokenjoule_ratio_raw": 1.6792807734809365,
+   "tokenjoule_ratio_reconciled": 0.846437070311072,
+   "energylens_ratio": 1.0652173913071408
+  },
+  {
+   "batch": 16,
+   "fig7b_epot_j_per_token": 2.523887912463197,
+   "fig7b_tpot_s": 0.041359736898118386,
+   "fig7b_x1024_j": 2584.461222362314,
+   "f13a_energylens_raw_j": 1344.61364918,
+   "f13a_measured_raw_j": 1407.78341794,
+   "k_B": 1.9220846255267625,
+   "k_B_rel_unc": 0.011060328451469648,
+   "f13a_energylens_reconciled_j": 2584.461222362314,
+   "f13a_measured_reconciled_j": 2705.8788636939908,
+   "tokenjoule_j": 2155.251135346656,
+   "tokenjoule_ratio_raw": 1.5309536309927707,
+   "tokenjoule_ratio_reconciled": 0.7965068814663666,
+   "energylens_ratio": 0.9551282051237429
+  }
+ ],
+ "fig9_crosscheck": {
+  "formula": "P_fig9 x 4 GPUs x (F13b measured latency/layer x 80) x 1023 / B",
+  "rows": [
+   {
+    "batch": 2,
+    "fig9_median_w": 317.78055463498754,
+    "fig9_box_w": [
+     316.615829774563,
+     318.81586562203165
+    ],
+    "fig9_whisker_w": [
+     315.7099326608995,
+     321.01590146950025
+    ],
+    "f13b_measured_latency_per_layer_ms": 0.34646519,
+    "decode_step_ms": 27.7172152,
+    "implied_energy_j": 18021.151671269505,
+    "implied_energy_range_j": [
+     17903.72789531894,
+     18204.626321192267
+    ],
+    "f13a_measured_raw_j": 8798.6463621,
+    "f13a_measured_reconciled_j": 17716.055733411755,
+    "implied_over_raw": 2.0481731995611585,
+    "implied_over_reconciled": 1.017221437008823,
+    "implied_power_from_raw_w": 155.153165124451
+   },
+   {
+    "batch": 8,
+    "fig9_median_w": 304.32151180341486,
+    "fig9_box_w": [
+     302.5097175760878,
+     305.48623666383946
+    ],
+    "fig9_whisker_w": [
+     300.8273372221412,
+     307.0392031444055
+    ],
+    "f13b_measured_latency_per_layer_ms": 0.40771722,
+    "decode_step_ms": 32.6173776,
+    "implied_energy_j": 5077.2357822638105,
+    "implied_energy_range_j": [
+     5018.939712070193,
+     5122.577170192179
+    ],
+    "f13a_measured_raw_j": 2490.69373942,
+    "f13a_measured_reconciled_j": 4941.388150332566,
+    "implied_over_raw": 2.03848257291004,
+    "implied_over_reconciled": 1.0274917953818508,
+    "implied_power_from_raw_w": 149.28825776959184
+   }
+  ]
+ }
+}
